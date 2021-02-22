@@ -304,7 +304,7 @@
     exports.HeaderModule = /** @class */ (function () {
         function HeaderModule(headerserviceService) {
             this.headerserviceService = headerserviceService;
-            console.log('ModLazyA Module constructor', headerserviceService);
+            console.log('ModLazyA Module constructor');
         }
         return HeaderModule;
     }());
