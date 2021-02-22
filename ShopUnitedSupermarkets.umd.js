@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common')) :
     typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/common'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.common));
-}(this, (function (exports, core, common) { 'use strict';
+}(this, (function (exports, i0, common) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -282,25 +282,42 @@
         return HeaderComponent;
     }());
     exports.ɵa = __decorate([
-        core.Component({
+        i0.Component({
             selector: 'app-header',
             template: "<p>\n  header works!\n</p>\n",
             styles: [""]
         })
     ], exports.ɵa);
 
+    exports.ɵb = /** @class */ (function () {
+        function HeaderserviceService() {
+        }
+        return HeaderserviceService;
+    }());
+    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function HeaderserviceService_Factory() { return new exports.ɵb(); }, token: exports.ɵb, providedIn: "root" });
+    exports.ɵb = __decorate([
+        i0.Injectable({
+            providedIn: 'root'
+        })
+    ], exports.ɵb);
+
     exports.HeaderModule = /** @class */ (function () {
-        function HeaderModule() {
+        function HeaderModule(headerserviceService) {
+            this.headerserviceService = headerserviceService;
+            console.log('ModLazyA Module constructor', headerserviceService);
         }
         return HeaderModule;
     }());
     exports.HeaderModule = __decorate([
-        core.NgModule({
+        i0.NgModule({
             imports: [
                 common.CommonModule
             ],
             declarations: [
                 exports.ɵa
+            ],
+            providers: [
+                exports.ɵb
             ],
             exports: [
                 exports.ɵa // <-- this!
