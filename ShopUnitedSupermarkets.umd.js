@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('lodash'), require('@ionic-native/in-app-browser/ngx/index'), require('ionic-cache/dist/cache.service'), require('@ionic-native/geolocation/ngx/index'), require('@angular/common/http'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index')) :
-    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', 'lodash', '@ionic-native/in-app-browser/ngx/index', 'ionic-cache/dist/cache.service', '@ionic-native/geolocation/ngx/index', '@angular/common/http', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global._, global.i2, global.i1, global.i4, global.ng.common.http, global.i6, global.i6$1, global.i5));
-}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, _, i2, i1, i4, i1$1, i6, i6$1, i5) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('@ionic-native/in-app-browser/ngx'), require('ionic-cache'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@angular/common/http'), require('ionic-cache/dist/cache.service'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index')) :
+    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', '@ionic-native/in-app-browser/ngx', 'ionic-cache', '@ionic-native/geolocation/ngx', 'lodash', '@angular/common/http', 'ionic-cache/dist/cache.service', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global.ngx, global.ionicCache, global.ngx$1, global._, global.ng.common.http, global.i1, global.ngx$2, global.i2, global.i4, global.i6, global.i6$1, global.i5));
+}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ngx, ionicCache, ngx$1, _, i1$1, i1, ngx$2, i2, i4, i6, i6$1, i5) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -413,32 +413,6 @@
      */
     // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
-    exports.ɵt = /** @class */ (function () {
-        function IframeModal(modalCtrl, router) {
-            this.modalCtrl = modalCtrl;
-            this.router = router;
-            this.deviceMode = '';
-            this.deviceMode = ENV.DeviceMode;
-            if (this.deviceMode == 'Web') {
-                window.parent.postMessage('scroll-top', '*');
-            }
-        }
-        return IframeModal;
-    }());
-    __decorate([
-        i0.Input()
-    ], exports.ɵt.prototype, "url", void 0);
-    __decorate([
-        i0.Input()
-    ], exports.ɵt.prototype, "title", void 0);
-    exports.ɵt = __decorate([
-        i0.Component({
-            selector: "iframe-modal",
-            template: "<ion-header class=\"\">\n    <ion-toolbar>\n        <ion-title>{{title}}</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content class=\"online-order-content\">\n    <ng-container *ngIf=\"url\">\n        <iframe [src]=\"url | safeResourceUrl\"></iframe>\n    </ng-container>\n</ion-content>",
-            styles: ["ion-title{padding:0 70px}h3{color:var(--online-order-primary-color);text-align:center;font-weight:700;margin:0}.txt-confirm{color:var(--online-order-blue)}.txt-confirm ion-label{font-weight:700}.link{color:var(--online-order-link-color);display:flex;align-items:center;justify-content:center}ion-label{font-size:14px}.online-order-content iframe{display:block;width:100%;height:100%;border:none}"]
-        })
-    ], exports.ɵt);
-
     exports.ɵd = /** @class */ (function () {
         function Credential(cache) {
             this.cache = cache;
@@ -592,6 +566,32 @@
             providedIn: 'root'
         })
     ], exports.ɵc);
+
+    exports.ɵt = /** @class */ (function () {
+        function IframeModal(modalCtrl, router) {
+            this.modalCtrl = modalCtrl;
+            this.router = router;
+            this.deviceMode = '';
+            this.deviceMode = ENV.DeviceMode;
+            if (this.deviceMode == 'Web') {
+                window.parent.postMessage('scroll-top', '*');
+            }
+        }
+        return IframeModal;
+    }());
+    __decorate([
+        i0.Input()
+    ], exports.ɵt.prototype, "url", void 0);
+    __decorate([
+        i0.Input()
+    ], exports.ɵt.prototype, "title", void 0);
+    exports.ɵt = __decorate([
+        i0.Component({
+            selector: "iframe-modal",
+            template: "<ion-header class=\"\">\n    <ion-toolbar>\n        <ion-title>{{title}}</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content class=\"online-order-content\">\n    <ng-container *ngIf=\"url\">\n        <iframe [src]=\"url | safeResourceUrl\"></iframe>\n    </ng-container>\n</ion-content>",
+            styles: ["ion-title{padding:0 70px}h3{color:var(--online-order-primary-color);text-align:center;font-weight:700;margin:0}.txt-confirm{color:var(--online-order-blue)}.txt-confirm ion-label{font-weight:700}.link{color:var(--online-order-link-color);display:flex;align-items:center;justify-content:center}ion-label{font-size:14px}.online-order-content iframe{display:block;width:100%;height:100%;border:none}"]
+        })
+    ], exports.ɵt);
 
     exports.ɵs = /** @class */ (function () {
         function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, cache, geolocation, 
@@ -1496,7 +1496,17 @@
     exports.ɵs = __decorate([
         i0.Injectable({
             providedIn: 'root'
-        })
+        }),
+        __param(0, i0.Inject(i1$2.LoadingController)),
+        __param(1, i0.Inject(i1$2.ToastController)),
+        __param(2, i0.Inject(ngx.InAppBrowser)),
+        __param(3, i0.Inject(i1$2.AlertController)),
+        __param(4, i0.Inject(ionicCache.CacheService)),
+        __param(5, i0.Inject(ngx$1.Geolocation)),
+        __param(6, i0.Inject(i1$2.NavController)),
+        __param(7, i0.Inject(exports.ɵc)),
+        __param(8, i0.Inject(ngx$2.Device)),
+        __param(9, i0.Inject(i1$2.ModalController))
     ], exports.ɵs);
     function noop() { }
     ;
