@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('@ionic-native/in-app-browser/ngx'), require('ionic-cache'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@angular/common/http'), require('ionic-cache/dist/cache.service'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index')) :
-    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', '@ionic-native/in-app-browser/ngx', 'ionic-cache', '@ionic-native/geolocation/ngx', 'lodash', '@angular/common/http', 'ionic-cache/dist/cache.service', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global.ngx, global.ionicCache, global.ngx$1, global._, global.ng.common.http, global.i1, global.ngx$2, global.i2, global.i4, global.i6, global.i6$1, global.i5));
-}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ngx, ionicCache, ngx$1, _, i1$1, i1, ngx$2, i2, i4, i6, i6$1, i5) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('@ionic-native/in-app-browser/ngx'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@angular/common/http'), require('ionic-cache/dist/cache.service'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index')) :
+    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', '@ionic-native/in-app-browser/ngx', '@ionic-native/geolocation/ngx', 'lodash', '@angular/common/http', 'ionic-cache/dist/cache.service', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global.ngx, global.ngx$1, global._, global.ng.common.http, global.i1, global.ngx$2, global.i2, global.i3, global.i5, global.i6, global.i5$1));
+}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ngx, ngx$1, _, i1$1, i1, ngx$2, i2, i3, i5, i6, i5$1) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -594,7 +594,9 @@
     ], exports.ɵt);
 
     exports.ɵs = /** @class */ (function () {
-        function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, cache, geolocation, 
+        function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, 
+        // @Inject(CacheService)public cache: CacheService,
+        geolocation, 
         // public events: Events,
         navCtrl, api, device, modalController
         /*public shoppingList: ShoppingList*/ ) {
@@ -602,7 +604,6 @@
             this.toastCtrl = toastCtrl;
             this.iab = iab;
             this.alertCtrl = alertCtrl;
-            this.cache = cache;
             this.geolocation = geolocation;
             this.navCtrl = navCtrl;
             this.api = api;
@@ -815,14 +816,15 @@
             });
         };
         Utils.prototype.getCache = function (name) {
-            var key = 'cache-' + name;
-            return this.cache.getItem(key)
-                .catch(function () {
-                console.log("Cache expired or doesn't exist!");
-            });
+            return Promise.resolve();
+            // var key = 'cache-' + name;
+            // return this.cache.getItem(key)
+            // 	.catch(() => {
+            // 		console.log("Cache expired or doesn't exist!");
+            // 	});
         };
         Utils.prototype.setCache = function (name, data) {
-            this.cache.saveItem('cache-' + name, data);
+            // this.cache.saveItem('cache-' + name, data);
         };
         Utils.prototype.getCurrentPosition = function () {
             return __awaiter(this, void 0, void 0, function () {
@@ -1208,14 +1210,16 @@
                 this._countDownObs.unsubscribe();
             }
             console.log('setCountDownClock', data);
-            this.cache.saveItem('cache-CountDownClock', data);
+            // this.cache.saveItem('cache-CountDownClock', data);
+            return Promise.resolve();
         };
         Utils.prototype.getCountDownClock = function () {
             var key = 'cache-CountDownClock';
-            return this.cache.getItem(key)
-                .catch(function () {
-                console.log("getCountDownClock expired or doesn't exist!");
-            });
+            // return this.cache.getItem(key)
+            // 	.catch(() => {
+            // 		console.log("getCountDownClock expired or doesn't exist!");
+            // 	});
+            return Promise.resolve(null);
         };
         Utils.prototype.countDownfunc = function () {
             var _this = this;
@@ -1492,7 +1496,7 @@
         };
         return Utils;
     }());
-    exports.ɵs.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new exports.ɵs(i0.ɵɵinject(i1$2.LoadingController), i0.ɵɵinject(i1$2.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$2.AlertController), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(i4.Geolocation), i0.ɵɵinject(i1$2.NavController), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(i6.Device), i0.ɵɵinject(i1$2.ModalController)); }, token: exports.ɵs, providedIn: "root" });
+    exports.ɵs.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new exports.ɵs(i0.ɵɵinject(i1$2.LoadingController), i0.ɵɵinject(i1$2.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$2.AlertController), i0.ɵɵinject(i3.Geolocation), i0.ɵɵinject(i1$2.NavController), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(i5.Device), i0.ɵɵinject(i1$2.ModalController)); }, token: exports.ɵs, providedIn: "root" });
     exports.ɵs = __decorate([
         i0.Injectable({
             providedIn: 'root'
@@ -1501,12 +1505,11 @@
         __param(1, i0.Inject(i1$2.ToastController)),
         __param(2, i0.Inject(ngx.InAppBrowser)),
         __param(3, i0.Inject(i1$2.AlertController)),
-        __param(4, i0.Inject(ionicCache.CacheService)),
-        __param(5, i0.Inject(ngx$1.Geolocation)),
-        __param(6, i0.Inject(i1$2.NavController)),
-        __param(7, i0.Inject(exports.ɵc)),
-        __param(8, i0.Inject(ngx$2.Device)),
-        __param(9, i0.Inject(i1$2.ModalController))
+        __param(4, i0.Inject(ngx$1.Geolocation)),
+        __param(5, i0.Inject(i1$2.NavController)),
+        __param(6, i0.Inject(exports.ɵc)),
+        __param(7, i0.Inject(ngx$2.Device)),
+        __param(8, i0.Inject(i1$2.ModalController))
     ], exports.ɵs);
     function noop() { }
     ;
@@ -1760,7 +1763,7 @@
         };
         return CurrentStore;
     }());
-    exports.ɵe.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentStore_Factory() { return new exports.ɵe(i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(exports.ɵf), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(i6$1.NgxPubSubService)); }, token: exports.ɵe, providedIn: "root" });
+    exports.ɵe.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentStore_Factory() { return new exports.ɵe(i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(exports.ɵf), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(i6.NgxPubSubService)); }, token: exports.ɵe, providedIn: "root" });
     exports.ɵe = __decorate([
         i0.Injectable({
             providedIn: 'root'
@@ -2136,7 +2139,7 @@
         };
         return AuthService;
     }());
-    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(i5.Network), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
+    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(i5$1.Network), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
     exports.ɵb = __decorate([
         i0.Injectable({
             providedIn: 'root'
