@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('ionic-cache'), require('ionic-cache/dist/cache.service'), require('@ionic-native/network/ngx'), require('@angular/common/http'), require('@ionic-native/in-app-browser/ngx'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index'), require('@angular/platform-browser')) :
     typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', 'ionic-cache', 'ionic-cache/dist/cache.service', '@ionic-native/network/ngx', '@angular/common/http', '@ionic-native/in-app-browser/ngx', '@ionic-native/geolocation/ngx', 'lodash', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index', '@angular/platform-browser'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global.ionicCache, global.i1, global.ngx$3, global.ng.common.http, global.ngx, global.ngx$1, global._, global.ngx$2, global.i2, global.i3, global.i4, global.i6, global.i5, global.ng.platformBrowser));
-}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ionicCache, i1, ngx$3, i1$1, ngx, ngx$1, _, ngx$2, i2, i3, i4, i6, i5, platformBrowser) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global.ionicCache, global.i1, global.ngx$3, global.ng.common.http, global.ngx, global.ngx$1, global._, global.ngx$2, global.i2, global.i4, global.i5, global.i6, global.i5$1, global.ng.platformBrowser));
+}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ionicCache, i1, ngx$3, i1$1, ngx, ngx$1, _, ngx$2, i2, i4, i5, i6, i5$1, platformBrowser) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -564,7 +564,9 @@
     exports.ɵc = __decorate([
         i0.Injectable({
             providedIn: 'root'
-        })
+        }),
+        __param(0, i0.Inject(i1$1.HttpHandler)),
+        __param(1, i0.Inject(exports.ɵd))
     ], exports.ɵc);
 
     exports.ɵp = /** @class */ (function () {
@@ -596,9 +598,7 @@
     ], exports.ɵp);
 
     var Utils = /** @class */ (function () {
-        function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, 
-        // @Inject(CacheService)public cache: CacheService,
-        geolocation, 
+        function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, cache, geolocation, 
         // public events: Events,
         navCtrl, 
         // @Inject(RelationshopHttpClient)public api: RelationshopHttpClient,
@@ -608,6 +608,7 @@
             this.toastCtrl = toastCtrl;
             this.iab = iab;
             this.alertCtrl = alertCtrl;
+            this.cache = cache;
             this.geolocation = geolocation;
             this.navCtrl = navCtrl;
             this.device = device;
@@ -712,21 +713,22 @@
             };
             this.navCtrl.navigateRoot(decodeURIComponent(backRoute), options);
         };
-        // getCities() {
-        // 	// let seq = this.restangular.all('cities').customGET().share();
-        // 	let seq = this.api.get('/cities', { params: { rCache: 'd', rCacheKey: 'cities' } }).pipe(
-        // 		map((res: any) => {
-        // 			if (res.length == 0) {
-        // 				res = this.cityList;
-        // 			}
-        // 			this.setCache('cities', res);
-        // 			return res;
-        // 		}, err => {
-        // 			console.error('ERROR', err);
-        // 		})
-        // 	);
-        // 	return seq;
-        // }
+        Utils.prototype.getCities = function () {
+            return rxjs.of(null);
+            // // let seq = this.restangular.all('cities').customGET().share();
+            // let seq = this.api.get('/cities', { params: { rCache: 'd', rCacheKey: 'cities' } }).pipe(
+            // 	map((res: any) => {
+            // 		if (res.length == 0) {
+            // 			res = this.cityList;
+            // 		}
+            // 		this.setCache('cities', res);
+            // 		return res;
+            // 	}, err => {
+            // 		console.error('ERROR', err);
+            // 	})
+            // );
+            // return seq;
+        };
         Utils.prototype.getOSName = function () {
             return this.device.platform;
         };
@@ -734,31 +736,33 @@
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             return emailPattern.test(elementValue);
         };
-        // getCityArea() {
-        // 	let seq = this.api.get('/cityarea/items', { params: { rCache: 'd', rCacheKey: 'city-area' } }).pipe(
-        // 		map((res: any) => {
-        // 			if (res.length == 0) {
-        // 				res = this.cityList;
-        // 			}
-        // 			return res;
-        // 		}, err => {
-        // 		})
-        // 	);
-        // 	return seq;
-        // }
-        // getStates() {
-        // 	let seq = this.api.get('/states', { params: { rCache: 'd', rCacheKey: 'states' } }).pipe(
-        // 		map((res: any) => {
-        // 			if (res.length == 0) {
-        // 				res = this.statelist;
-        // 			}
-        // 			return res;
-        // 		}, err => {
-        // 			console.error('ERROR', err);
-        // 		})
-        // 	);
-        // 	return seq;
-        // }
+        Utils.prototype.getCityArea = function () {
+            return rxjs.of(null);
+            // let seq = this.api.get('/cityarea/items', { params: { rCache: 'd', rCacheKey: 'city-area' } }).pipe(
+            // 	map((res: any) => {
+            // 		if (res.length == 0) {
+            // 			res = this.cityList;
+            // 		}
+            // 		return res;
+            // 	}, err => {
+            // 	})
+            // );
+            // return seq;
+        };
+        Utils.prototype.getStates = function () {
+            return rxjs.of(null);
+            // let seq = this.api.get('/states', { params: { rCache: 'd', rCacheKey: 'states' } }).pipe(
+            // 	map((res: any) => {
+            // 		if (res.length == 0) {
+            // 			res = this.statelist;
+            // 		}
+            // 		return res;
+            // 	}, err => {
+            // 		console.error('ERROR', err);
+            // 	})
+            // );
+            // return seq;
+        };
         Utils.prototype.getStore = function () {
             return this._store;
         };
@@ -1438,10 +1442,11 @@
             coupon.IsAdded = couponsMap.IsAdded;
             return coupon;
         };
-        // sendSupportEmail(obj: any) {
-        // 	Object.assign(obj, { BannerID: ENV.DefaultBanerId });
-        // 	return this.api.post('/feedbacks', obj)
-        // }
+        Utils.prototype.sendSupportEmail = function (obj) {
+            return rxjs.of(null);
+            // Object.assign(obj, { BannerID: ENV.DefaultBanerId });
+            // return this.api.post('/feedbacks', obj)
+        };
         Utils.prototype.rsAddress2ecomAddress = function (rsAddress) {
             // console.log('rsAddress', rsAddress);
             var address = {
@@ -1502,7 +1507,7 @@
         };
         return Utils;
     }());
-    Utils.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new Utils(i0.ɵɵinject(i1$2.LoadingController), i0.ɵɵinject(i1$2.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$2.AlertController), i0.ɵɵinject(i3.Geolocation), i0.ɵɵinject(i1$2.NavController), i0.ɵɵinject(i4.Device), i0.ɵɵinject(i1$2.ModalController)); }, token: Utils, providedIn: "root" });
+    Utils.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new Utils(i0.ɵɵinject(i1$2.LoadingController), i0.ɵɵinject(i1$2.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$2.AlertController), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(i4.Geolocation), i0.ɵɵinject(i1$2.NavController), i0.ɵɵinject(i5.Device), i0.ɵɵinject(i1$2.ModalController)); }, token: Utils, providedIn: "root" });
     Utils = __decorate([
         i0.Injectable({
             providedIn: 'root'
@@ -1511,10 +1516,11 @@
         __param(1, i0.Inject(i1$2.ToastController)),
         __param(2, i0.Inject(ngx.InAppBrowser)),
         __param(3, i0.Inject(i1$2.AlertController)),
-        __param(4, i0.Inject(ngx$1.Geolocation)),
-        __param(5, i0.Inject(i1$2.NavController)),
-        __param(6, i0.Inject(ngx$2.Device)),
-        __param(7, i0.Inject(i1$2.ModalController))
+        __param(4, i0.Inject(ionicCache.CacheService)),
+        __param(5, i0.Inject(ngx$1.Geolocation)),
+        __param(6, i0.Inject(i1$2.NavController)),
+        __param(7, i0.Inject(ngx$2.Device)),
+        __param(8, i0.Inject(i1$2.ModalController))
     ], Utils);
     function noop() { }
     ;
@@ -2144,7 +2150,7 @@
         };
         return AuthService;
     }());
-    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(i5.Network), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
+    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(i5$1.Network), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
     exports.ɵb = __decorate([
         i0.Injectable({
             providedIn: 'root'
