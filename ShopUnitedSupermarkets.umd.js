@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage')) :
-    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.angular, global.storage));
-}(this, (function (exports, core, router, forms, common, angular, storage) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('@angular/platform-browser'), require('@pscoped/ngx-pub-sub')) :
+    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', '@angular/platform-browser', '@pscoped/ngx-pub-sub'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.angular, global.storage, global.ng.platformBrowser, global.ngxPubSub));
+}(this, (function (exports, core, router, forms, common, angular, storage, platformBrowser, ngxPubSub) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -374,7 +374,8 @@
         return SafeHtmlPipe;
     }());
     exports.ɵf = __decorate([
-        core.Pipe({ name: 'safeHtml' })
+        core.Pipe({ name: 'safeHtml' }),
+        __param(0, core.Inject(platformBrowser.DomSanitizer))
     ], exports.ɵf);
 
     exports.ɵc = /** @class */ (function () {
@@ -392,7 +393,9 @@
             selector: 'learn-more',
             template: "<ion-header>\n\t<ion-toolbar class=\"ion-no-line\">\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"modalCtrl.dismiss()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" color=\"dark\" name=\"md-close\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-grid class=\"ion-padding-horizontal\">\n    <ion-row>\n      <ion-col class=\"ion-text-center\">\n        <ion-img style=\"width: 100%; height: 90px; background: transparent !important;\" src=\"assets/imgs/learnMoreLogo.png\"></ion-img>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Sign Up!</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Earn and redeem rewards for\n          savings at checkout and the pump,\n          plus enjoy access to online\n          shopping, digital coupons and\n          exclusive clubs.</ion-label>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Shop & Earn!</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Fill your basket and earn a point for\n          every dollar you spend. Gift card*\n          purchases earn double points!</ion-label>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Save</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Automatically earn a Reward for\n          every 100 points. Redeem Rewards\n          for big discounts, free products or\n          up to $1 off per gallon of gas!</ion-label>\n      </ion-col>\n    </ion-row>\n    <!-- <ion-row padding-horizontal>\n      <ion-col text-center>\n        <button class=\"cus-lgButton\" ion-button color=\"primary\" round (click)=\"openSignUp()\">SIGN UP</button>\n      </ion-col>\n    </ion-row> -->\n  </ion-grid>\n</ion-content>",
             styles: ["ion-img img{margin-left:auto;margin-right:auto}.btn{width:110px;height:40px}.cus-headline-1{color:var(--ion-color-tertiary)}ion-label{display:block;text-overflow:clip;white-space:normal}.cus-headline-1{padding:0}"]
-        })
+        }),
+        __param(0, core.Inject(router.Router)),
+        __param(1, core.Inject(angular.ModalController))
     ], exports.ɵc);
 
     exports.ɵb = /** @class */ (function () {
@@ -438,7 +441,11 @@
             selector: 'guest-msg',
             template: "<ion-header>\n\t<ion-toolbar class=\"ion-no-line\">\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"modalCtrl.dismiss()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" color=\"dark\" name=\"md-close\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<h1>\n\t\tSign up to shop online,<br />\n\t\tcreate lists & more!\n\t</h1>\n\t<p>\n\t\tIn addition to earning and redeeming<br />\n\t\trewards for savings at check out and<br />\n\t\tthe pump, signing up for a Rewards<br />\n\t\taccount allows you to create lists,<br />\n\t\tshop online & access special offers<br />\n\t\tand digital coupons\n\t</p>\n\t<ion-row>\n\t\t<ion-col size=\"12\">\n\t\t\t<ion-button class=\"action\" color=\"secondary\" (click)=\"goLogin()\">LOG IN</ion-button>\n\t\t\t<ion-button class=\"action\" color=\"tertiary\" (click)=\"goSignup()\">SIGN UP</ion-button>\n\t\t</ion-col>\n\t\t<ion-col class=\"ion-text-center guest\" size=\"12\">\n\t      <ion-label (click)=\"showLearn()\" color=\"blue-light\" class=\"learn-more-lbl\">\n\t        Learn more >\n\t      </ion-label>\n\t    </ion-col>\n\t</ion-row>\n</ion-content>",
             styles: [":host{text-align:center}h1{font-size:var(--dxp-fz-huge);color:var(--ion-color-primary);margin-bottom:30px}.learn-more-lbl{display:block;margin-top:30px;color:var(--ion-color-blue-light)}ion-button.action{width:100px}"]
-        })
+        }),
+        __param(0, core.Inject(router.Router)),
+        __param(1, core.Inject(angular.ModalController)),
+        __param(2, core.Inject(angular.NavController)),
+        __param(3, core.Inject(ngxPubSub.NgxPubSubService))
     ], exports.ɵb);
 
     exports.ɵi = /** @class */ (function () {
@@ -468,7 +475,8 @@
         return SafeUrlPipe;
     }());
     exports.ɵg = __decorate([
-        core.Pipe({ name: 'safeUrl' })
+        core.Pipe({ name: 'safeUrl' }),
+        __param(0, core.Inject(platformBrowser.DomSanitizer))
     ], exports.ɵg);
 
     var Environment = /** @class */ (function () {
@@ -628,7 +636,9 @@
             selector: "iframe-modal",
             template: "<ion-header class=\"\">\n    <ion-toolbar>\n        <ion-title>{{title}}</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content class=\"online-order-content\">\n    <ng-container *ngIf=\"url\">\n        <iframe [src]=\"url | safeResourceUrl\"></iframe>\n    </ng-container>\n</ion-content>",
             styles: ["ion-title{padding:0 70px}h3{color:var(--online-order-primary-color);text-align:center;font-weight:700;margin:0}.txt-confirm{color:var(--online-order-blue)}.txt-confirm ion-label{font-weight:700}.link{color:var(--online-order-link-color);display:flex;align-items:center;justify-content:center}ion-label{font-size:14px}.online-order-content iframe{display:block;width:100%;height:100%;border:none}"]
-        })
+        }),
+        __param(0, core.Inject(angular.ModalController)),
+        __param(1, core.Inject(router.Router))
     ], exports.ɵj);
 
     exports.ɵh = /** @class */ (function () {
@@ -641,7 +651,8 @@
         return SafeResourceUrlPipe;
     }());
     exports.ɵh = __decorate([
-        core.Pipe({ name: 'safeResourceUrl' })
+        core.Pipe({ name: 'safeResourceUrl' }),
+        __param(0, core.Inject(platformBrowser.DomSanitizer))
     ], exports.ɵh);
 
     exports.ɵd = /** @class */ (function () {
