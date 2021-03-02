@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('@ionic-native/in-app-browser/ngx'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@angular/common/http'), require('ionic-cache/dist/cache.service'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index')) :
-    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', '@ionic-native/in-app-browser/ngx', '@ionic-native/geolocation/ngx', 'lodash', '@angular/common/http', 'ionic-cache/dist/cache.service', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global.ngx, global.ngx$1, global._, global.ng.common.http, global.i1, global.ngx$2, global.i2, global.i3, global.i5, global.i6, global.i5$1));
-}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ngx, ngx$1, _, i1$1, i1, ngx$2, i2, i3, i5, i6, i5$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('ionic-cache/dist/cache.service'), require('@angular/common/http'), require('rxjs'), require('@pscoped/ngx-pub-sub'), require('rxjs/operators'), require('lodash'), require('@ionic-native/in-app-browser/ngx'), require('@ionic-native/geolocation/ngx'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index')) :
+    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'ionic-cache/dist/cache.service', '@angular/common/http', 'rxjs', '@pscoped/ngx-pub-sub', 'rxjs/operators', 'lodash', '@ionic-native/in-app-browser/ngx', '@ionic-native/geolocation/ngx', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1, global.storage, global.i1$1, global.ng.common.http, global.rxjs, global.i6, global.rxjs.operators, global._, global.ngx, global.ngx$1, global.ngx$2, global.i2, global.i3, global.i4));
+}(this, (function (exports, i0, router, forms, common, i1, storage, i1$1, i1$2, rxjs, i6, operators, _, ngx, ngx$1, ngx$2, i2, i3, i4) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -279,6 +279,240 @@
         return (mod && mod.__esModule) ? mod : { default: mod };
     }
 
+    exports.ɵa = /** @class */ (function () {
+        function TutorialPage(router, route, storage) {
+            this.router = router;
+            this.route = route;
+            this.storage = storage;
+            this.info = {
+                version: 1,
+                buildNumber: 1,
+            };
+            var back = this.route.snapshot.paramMap.get('back');
+            if (back) {
+                this.back = back;
+            }
+            // this.wellcomeType = navParams.get('wellcomeType');
+        }
+        TutorialPage.prototype.ionViewWillEnter = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    console.log("🚀 ~ file: tutorial.ts ~ line 32 ~ TutorialPage ~ ionViewWillEnter ~ ionViewWillEnter");
+                    return [2 /*return*/];
+                });
+            });
+        };
+        TutorialPage.prototype.startTour = function () {
+            this.isStartTour = true;
+        };
+        return TutorialPage;
+    }());
+    exports.ɵa = __decorate([
+        i0.Component({
+            selector: 'page-tutorial',
+            template: "<ion-header>\n    <ion-toolbar class=\"ion-no-line\" [ngClass]=\"{'bg-gray':isStartTour}\">\n        <ion-title>About Our App</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-back-button defaultHref=\"home\" text=\"\" icon=\"md-close\" color=\"dark\"></ion-back-button>\n            <!-- <ion-button [routerLink]=\"[back]\" *ngIf=\"back\">\n                <ion-icon slot=\"icon-only\" name=\"md-close\" color=\"dark\"></ion-icon>\n            </ion-button> -->\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content [ngClass]=\"{'bg-gray':isStartTour}\">\n    <div class=\"first-tour\" *ngIf=\"!isStartTour\">\n        <div>\n            <ion-text color=\"secondary\" class=\"ion-text-center\">\n                <h1 class=\"secondary\">\n                    Shop Your Way!\n                </h1>\n            </ion-text>\n            <ion-text color=\"tertiary\" class=\"ion-text-center\">\n                <h4>\n                    Order online or make your list and <br> shop in the store!\n                </h4>\n            </ion-text>\n            <div class=\"image-container ion-text-center\">\n                <img src=\"assets/img/step1-01.png\" />\n            </div>\n            <ion-text class=\"ion-text-center\">\n                <p class=\"ion-margin-bottom ion-no-margin\">\n                    You choose how to shop! <br>\n                    Online pickup & delivery orders <br> or build a list to shop in-store. <br>\n                    It's easy with our new App!\n                </p>\n            </ion-text>\n            <ion-row>\n                <ion-col size=\"5\" offset=\"3.5\">\n                    <ion-button expand=\"block\" color=\"primary\" (click)=\"startTour()\">NEXT</ion-button>\n                </ion-col>\n\n            </ion-row>\n        </div>\n    </div>\n    <div class=\"slides-wrapper\" *ngIf=\"isStartTour\">\n        <ion-slides #slides [pager]=\"true\">\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step2-01.png\" />\n                    </div>\n\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Allow Notifications!\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Turn on notifications so you can receive our <br>\n                            special offers and deals!\n                        </p>\n                    </ion-text>\n                    <!-- <p class=\"title\" style=\"margin-bottom: 0px\">\n                        Our Healthy Rewards app<br />\n                        is getting an update,<br />\n                        making it easier to save, earn,<br />\n                        and live healthy!\n                    </p>\n                    <p class=\"next-img\">Take a tour to learn more!\n                    <p>\n                    <p class=\"begin\">SWIPE TO BEGIN</p> -->\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step3-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            New Rewards Dashboard\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            View your points & rewards. See all offers &<br>\n                            coupons added to your account and access<br>\n                            previous purchases to quickly build your <br>\n                            grocery list or shop online.\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step4-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Shopping Lists\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Search your store for the exact products you<br>\n                            buy. Easily check items off your list while<br>\n                            shopping in the store!\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step5-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Shop Our Weekly Ad\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Love to save? Shop our weekly ad!<br>\n                            Easily add weekly deals right to <br>\n                            your list or cart!\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step6-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Buy Again\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Items you buy most often are right on the<br>\n                            home screen so you can quickly add to<br>\n                            your list or shopping cart for online orders.\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n        </ion-slides>\n    </div>\n</ion-content>",
+            styles: ["ion-title{color:#666}h1.secondary{color:var(--ion-color-secondary)}.first-tour{float:left;width:100%;height:calc(100% - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0));margin-bottom:10px}.first-tour .image-container{height:40vh}.first-tour .image-container img{height:100%}.bg-gray{--background:#efeff0}.ion-no-margin-top{margin-top:0}ion-slides{height:calc(100vh - 60px - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0))}ion-slide div{height:100%}p{color:#666;font-size:16px}.title{color:var(--ion-color-primary);font-weight:700;font-size:24px}ion-slide:nth-child(2) .next-img{margin-top:0}ion-slide:nth-child(3) .next-img{margin-top:-100px}ion-slide:nth-child(4) .next-img{margin-top:-20px}ion-slide:nth-child(5) .next-img{margin-top:-60px}ion-slide:nth-child(6) .next-img{margin-top:-20px}ion-slide:first-child img{margin-top:0}.begin{color:var(--ion-color-primary);font-weight:700;letter-spacing:2px;margin-bottom:30px}.next-img{margin-top:-30px}ion-slides{--bullet-background:var(--ion-color-primary);--bullet-background-active:var(--ion-color-secondary)}.tapx{color:var(--ion-color-primary);font-size:20px}.slides-wrapper{height:calc(100vh - 260px - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0));margin-bottom:10px}.slides-wrapper .image-container{height:70%}"]
+        }),
+        __param(0, i0.Inject(router.Router)),
+        __param(1, i0.Inject(router.ActivatedRoute)),
+        __param(2, i0.Inject(storage.Storage))
+    ], exports.ɵa);
+
+    /**
+     * Generated class for the PhoneFormatPipe pipe.
+     *
+     * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+     */
+    exports.ɵe = /** @class */ (function () {
+        function PhoneFormatPipe() {
+        }
+        PhoneFormatPipe.prototype.transform = function (tel, args) {
+            if (!!tel) {
+                var value = tel.toString().trim().replace(/^\+/, '');
+                if (value.match(/[^0-9]/)) {
+                    return tel;
+                }
+                var country, city, number;
+                switch (value.length) {
+                    case 10: // +1PPP####### -> C (PPP) ###-####
+                        country = 1;
+                        city = value.slice(0, 3);
+                        number = value.slice(3);
+                        break;
+                    case 11: // +CPPP####### -> CCC (PP) ###-####
+                        country = value[0];
+                        city = value.slice(1, 4);
+                        number = value.slice(4);
+                        break;
+                    case 12: // +CCCPP####### -> CCC (PP) ###-####
+                        country = value.slice(0, 3);
+                        city = value.slice(3, 5);
+                        number = value.slice(5);
+                        break;
+                    default:
+                        return tel;
+                }
+                if (country == 1) {
+                    country = "";
+                }
+                number = number.slice(0, 3) + '-' + number.slice(3);
+                return (country + city + "-" + number).trim();
+            }
+        };
+        return PhoneFormatPipe;
+    }());
+    exports.ɵe = __decorate([
+        i0.Pipe({
+            name: 'phoneFormat',
+        }),
+        i0.Injectable()
+    ], exports.ɵe);
+
+    exports.ɵf = /** @class */ (function () {
+        function SafeHtmlPipe(sanitized) {
+            this.sanitized = sanitized;
+        }
+        SafeHtmlPipe.prototype.transform = function (value) {
+            return this.sanitized.bypassSecurityTrustHtml(value);
+        };
+        return SafeHtmlPipe;
+    }());
+    exports.ɵf = __decorate([
+        i0.Pipe({ name: 'safeHtml' })
+    ], exports.ɵf);
+
+    exports.ɵc = /** @class */ (function () {
+        function LearnMore(router, 
+        // public state: ActivatedRouteSnapshot,
+        modalCtrl) {
+            this.router = router;
+            this.modalCtrl = modalCtrl;
+            this.backUrl = this.router.url;
+        }
+        return LearnMore;
+    }());
+    exports.ɵc = __decorate([
+        i0.Component({
+            selector: 'learn-more',
+            template: "<ion-header>\n\t<ion-toolbar class=\"ion-no-line\">\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"modalCtrl.dismiss()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" color=\"dark\" name=\"md-close\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-grid class=\"ion-padding-horizontal\">\n    <ion-row>\n      <ion-col class=\"ion-text-center\">\n        <ion-img style=\"width: 100%; height: 90px; background: transparent !important;\" src=\"assets/imgs/learnMoreLogo.png\"></ion-img>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Sign Up!</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Earn and redeem rewards for\n          savings at checkout and the pump,\n          plus enjoy access to online\n          shopping, digital coupons and\n          exclusive clubs.</ion-label>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Shop & Earn!</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Fill your basket and earn a point for\n          every dollar you spend. Gift card*\n          purchases earn double points!</ion-label>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Save</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Automatically earn a Reward for\n          every 100 points. Redeem Rewards\n          for big discounts, free products or\n          up to $1 off per gallon of gas!</ion-label>\n      </ion-col>\n    </ion-row>\n    <!-- <ion-row padding-horizontal>\n      <ion-col text-center>\n        <button class=\"cus-lgButton\" ion-button color=\"primary\" round (click)=\"openSignUp()\">SIGN UP</button>\n      </ion-col>\n    </ion-row> -->\n  </ion-grid>\n</ion-content>",
+            styles: ["ion-img img{margin-left:auto;margin-right:auto}.btn{width:110px;height:40px}.cus-headline-1{color:var(--ion-color-tertiary)}ion-label{display:block;text-overflow:clip;white-space:normal}.cus-headline-1{padding:0}"]
+        })
+    ], exports.ɵc);
+
+    exports.ɵb = /** @class */ (function () {
+        function GuestMsg(router, 
+        // public state: ActivatedRouteSnapshot,
+        modalCtrl, navCtrl, events) {
+            this.router = router;
+            this.modalCtrl = modalCtrl;
+            this.navCtrl = navCtrl;
+            this.events = events;
+            this.backUrl = this.router.url;
+        }
+        GuestMsg.prototype.goLogin = function () {
+            this.modalCtrl.dismiss(true);
+            this.events.publishEvent('close-modal');
+            this.navCtrl.navigateRoot(['/login', { returnRoute: this.backUrl || '' }]);
+        };
+        GuestMsg.prototype.goSignup = function () {
+            this.modalCtrl.dismiss(true);
+            this.events.publishEvent('close-modal');
+            this.navCtrl.navigateRoot(['/signup', { returnRoute: this.backUrl || '' }]);
+        };
+        GuestMsg.prototype.showLearn = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var m;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.modalCtrl.create({
+                                component: exports.ɵc
+                            })];
+                        case 1:
+                            m = _a.sent();
+                            m.present();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        return GuestMsg;
+    }());
+    exports.ɵb = __decorate([
+        i0.Component({
+            selector: 'guest-msg',
+            template: "<ion-header>\n\t<ion-toolbar class=\"ion-no-line\">\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"modalCtrl.dismiss()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" color=\"dark\" name=\"md-close\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<h1>\n\t\tSign up to shop online,<br />\n\t\tcreate lists & more!\n\t</h1>\n\t<p>\n\t\tIn addition to earning and redeeming<br />\n\t\trewards for savings at check out and<br />\n\t\tthe pump, signing up for a Rewards<br />\n\t\taccount allows you to create lists,<br />\n\t\tshop online & access special offers<br />\n\t\tand digital coupons\n\t</p>\n\t<ion-row>\n\t\t<ion-col size=\"12\">\n\t\t\t<ion-button class=\"action\" color=\"secondary\" (click)=\"goLogin()\">LOG IN</ion-button>\n\t\t\t<ion-button class=\"action\" color=\"tertiary\" (click)=\"goSignup()\">SIGN UP</ion-button>\n\t\t</ion-col>\n\t\t<ion-col class=\"ion-text-center guest\" size=\"12\">\n\t      <ion-label (click)=\"showLearn()\" color=\"blue-light\" class=\"learn-more-lbl\">\n\t        Learn more >\n\t      </ion-label>\n\t    </ion-col>\n\t</ion-row>\n</ion-content>",
+            styles: [":host{text-align:center}h1{font-size:var(--dxp-fz-huge);color:var(--ion-color-primary);margin-bottom:30px}.learn-more-lbl{display:block;margin-top:30px;color:var(--ion-color-blue-light)}ion-button.action{width:100px}"]
+        })
+    ], exports.ɵb);
+
+    exports.ɵi = /** @class */ (function () {
+        function SkeletonComponent() {
+        }
+        SkeletonComponent.prototype.ngOnInit = function () {
+        };
+        SkeletonComponent.prototype.ngOnChanges = function (changes) {
+        };
+        return SkeletonComponent;
+    }());
+    exports.ɵi = __decorate([
+        i0.Component({
+            selector: 'skeleton-component',
+            template: "<div class=\"img-wrapper\">\n        <ion-skeleton-text animated class=\"image\"></ion-skeleton-text>\n</div>\n<div class=\"item ion-padding-top\">\n    <ion-skeleton-text animated></ion-skeleton-text>\n</div>\n<div class=\"item\">\n    <ion-skeleton-text animated></ion-skeleton-text>\n</div>\n<div class=\"item\">\n    <ion-skeleton-text animated></ion-skeleton-text>\n</div>",
+            styles: [".image{width:90%;height:150px;margin:auto}.item{padding-top:5px}.item ion-skeleton-text{line-height:18px;width:60%;margin:auto}"]
+        })
+    ], exports.ɵi);
+
+    exports.ɵj = /** @class */ (function () {
+        function CheckOrderModal(cre, cStore, 
+        // @Inject(CacheService)public cache: CacheService,
+        router, alertCtrl, appSettings, utils, modalCtrl) {
+            this.cre = cre;
+            this.cStore = cStore;
+            this.router = router;
+            this.alertCtrl = alertCtrl;
+            this.appSettings = appSettings;
+            this.utils = utils;
+            this.modalCtrl = modalCtrl;
+            this.currentUser = {};
+        }
+        CheckOrderModal.prototype.ngOnInit = function () {
+        };
+        CheckOrderModal.prototype.viewOrderSummary = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.modalCtrl.dismiss()];
+                        case 1:
+                            _a.sent();
+                            this.router.navigate(['/tabs/purchase/order-sumary', { orderId: this.latestOnlineOrder.OrderId }]);
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        return CheckOrderModal;
+    }());
+    exports.ɵj = __decorate([
+        i0.Component({
+            selector: 'check-order-modal',
+            template: "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-grid>\n        <ion-row>\n            <ion-col class=\"ion-text-center\">\n                <ion-label class=\"title-check-order\"><span class=\"txt\">Order:\n                    </span><span>{{latestOnlineOrder.OrderId}}</span>\n                </ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col class=\"ion-text-center\">\n                <div class=\"order-status\">\n                    <div class=\"status-title\"\n                        [ngClass]=\"{'order-status-active': latestOnlineOrder.Status == 'New Order' || latestOnlineOrder.Status == 'Comleted' || latestOnlineOrder.Status == 'Processing'}\">\n                        <span class=\"dot\"></span><span class=\"line line-top\"></span><span>Recevied</span></div>\n                    <div class=\"status-title\"\n                        [ngClass]=\"{'order-status-active': latestOnlineOrder.Status == 'Processing' || latestOnlineOrder.Status == 'Comleted'}\">\n                        <span class=\"dot\"></span><span class=\"line line-middle\"></span><span>Processing</span></div>\n                    <div class=\"status-title\"\n                        [ngClass]=\"{'order-status-active': latestOnlineOrder.Status == 'Comleted'}\"><span\n                            class=\"dot \"></span><span class=\"line line-bottom \"></span><span>Completed</span></div>\n                </div>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col class=\"ion-text-center\">\n                <ion-button class=\"view-order-summary-btn\" color=\"secondary\" (click)=\"viewOrderSummary()\">\n                    View Order Summary\n                </ion-button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>",
+            styles: ["ion-content ion-grid .title-check-order{margin:0;font-size:22px}ion-content ion-grid .title-check-order .txt{color:var(--ion-color-primary);font-weight:700}ion-content ion-grid .order-status{font-size:18px;margin-left:25%}ion-content ion-grid .order-status .status-title{display:flex;align-items:center;padding:6px 0;position:relative;font-size:20px;height:55px}ion-content ion-grid .order-status .status-title .dot{height:22px;width:22px;background-color:var(--ion-color-gray-light);border-radius:50%;display:inline-block;margin-right:10px}ion-content ion-grid .order-status .status-title .line-top{height:28px;bottom:0}ion-content ion-grid .order-status .status-title .line-middle{height:55px;top:0}ion-content ion-grid .order-status .status-title .line-bottom{height:28px;top:0}ion-content ion-grid .order-status .status-title .line{width:5px;left:8px;background-color:var(--ion-color-gray-light);display:inline-block;position:absolute}ion-content ion-grid .order-status .order-status-active{color:var(--ion-color-tertiary)!important}ion-content ion-grid .order-status .order-status-active .dot,ion-content ion-grid .order-status .order-status-active .line{background-color:var(--ion-color-tertiary)!important}"]
+        })
+    ], exports.ɵj);
+
+    exports.ɵg = /** @class */ (function () {
+        function SafeUrlPipe(sanitizer) {
+            this.sanitizer = sanitizer;
+        }
+        SafeUrlPipe.prototype.transform = function (html) {
+            return this.sanitizer.bypassSecurityTrustStyle('url(\'' + encodeURI(html) + '\')');
+        };
+        return SafeUrlPipe;
+    }());
+    exports.ɵg = __decorate([
+        i0.Pipe({ name: 'safeUrl' })
+    ], exports.ɵg);
+
     var Environment = /** @class */ (function () {
         function Environment() {
             // public abstract read mode?: "string";
@@ -413,7 +647,95 @@
      */
     // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
+    exports.ɵr = /** @class */ (function () {
+        function IframeModal(modalCtrl, router) {
+            this.modalCtrl = modalCtrl;
+            this.router = router;
+            this.deviceMode = '';
+            this.deviceMode = ENV.DeviceMode;
+            if (this.deviceMode == 'Web') {
+                window.parent.postMessage('scroll-top', '*');
+            }
+        }
+        return IframeModal;
+    }());
+    __decorate([
+        i0.Input()
+    ], exports.ɵr.prototype, "url", void 0);
+    __decorate([
+        i0.Input()
+    ], exports.ɵr.prototype, "title", void 0);
+    exports.ɵr = __decorate([
+        i0.Component({
+            selector: "iframe-modal",
+            template: "<ion-header class=\"\">\n    <ion-toolbar>\n        <ion-title>{{title}}</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content class=\"online-order-content\">\n    <ng-container *ngIf=\"url\">\n        <iframe [src]=\"url | safeResourceUrl\"></iframe>\n    </ng-container>\n</ion-content>",
+            styles: ["ion-title{padding:0 70px}h3{color:var(--online-order-primary-color);text-align:center;font-weight:700;margin:0}.txt-confirm{color:var(--online-order-blue)}.txt-confirm ion-label{font-weight:700}.link{color:var(--online-order-link-color);display:flex;align-items:center;justify-content:center}ion-label{font-size:14px}.online-order-content iframe{display:block;width:100%;height:100%;border:none}"]
+        })
+    ], exports.ɵr);
+
+    exports.ɵh = /** @class */ (function () {
+        function SafeResourceUrlPipe(sanitizer) {
+            this.sanitizer = sanitizer;
+        }
+        SafeResourceUrlPipe.prototype.transform = function (url) {
+            return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+        };
+        return SafeResourceUrlPipe;
+    }());
+    exports.ɵh = __decorate([
+        i0.Pipe({ name: 'safeResourceUrl' })
+    ], exports.ɵh);
+
     exports.ɵd = /** @class */ (function () {
+        function UtilsModule() {
+        }
+        return UtilsModule;
+    }());
+    exports.ɵd = __decorate([
+        i0.NgModule({
+            declarations: [
+                exports.ɵe, exports.ɵf, exports.ɵg, exports.ɵh, exports.ɵb, exports.ɵi, exports.ɵj, exports.ɵc, exports.ɵr
+            ],
+            imports: [
+                common.CommonModule,
+                i1.IonicModule
+            ],
+            entryComponents: [exports.ɵb, exports.ɵj, exports.ɵc, exports.ɵr],
+            exports: [exports.ɵe, exports.ɵf, exports.ɵg, exports.ɵh, exports.ɵb, exports.ɵi, exports.ɵj, exports.ɵc, exports.ɵr]
+        })
+    ], exports.ɵd);
+
+    var routes = [
+        {
+            path: '',
+            component: exports.ɵa
+        },
+    ];
+    exports.TutorialModule = /** @class */ (function () {
+        function TutorialModule() {
+        }
+        return TutorialModule;
+    }());
+    exports.TutorialModule = __decorate([
+        i0.NgModule({
+            imports: [
+                router.RouterModule.forChild(routes),
+                common.CommonModule,
+                forms.FormsModule,
+                i1.IonicModule,
+                exports.ɵd,
+            ],
+            declarations: [exports.ɵa]
+        })
+    ], exports.TutorialModule);
+
+    /*
+     * Public API Surface
+     */
+    // export * from './src/app/modules/header/header.module'
+    // export * from './app/modules/header/header.module';
+
+    exports.ɵk = /** @class */ (function () {
         function Credential(cache) {
             this.cache = cache;
             // public rsApiToken:string = 'd23cc01090054f13bd56aa18a7b61cc1'; 
@@ -505,19 +827,19 @@
         };
         return Credential;
     }());
-    exports.ɵd.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Credential_Factory() { return new exports.ɵd(i0.ɵɵinject(i1.CacheService)); }, token: exports.ɵd, providedIn: "root" });
-    exports.ɵd = __decorate([
+    exports.ɵk.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Credential_Factory() { return new exports.ɵk(i0.ɵɵinject(i1$1.CacheService)); }, token: exports.ɵk, providedIn: "root" });
+    exports.ɵk = __decorate([
         i0.Injectable({
             providedIn: 'root'
         })
-    ], exports.ɵd);
+    ], exports.ɵk);
 
     /** reference
         https://medium.com/@admin_87321/extending-angular-httpclient-episode-2-144b58494db4
         https://github.com/bbogdanov/ExtendAngularHttpClient/blob/master/extendHttpClient/src/app/http-client.ts
         https://github.com/angular/angular/issues/20203
     **/
-    exports.ɵc = /** @class */ (function (_super) {
+    exports.ɵm = /** @class */ (function (_super) {
         __extends(RelationshopHttpClient, _super);
         function RelationshopHttpClient(handler, cre) {
             var _this = _super.call(this, handler) || this;
@@ -536,11 +858,11 @@
             url = this.api + url;
             // token
             var headers = undefined;
-            if (options.headers instanceof i1$1.HttpHeaders) {
+            if (options.headers instanceof i1$2.HttpHeaders) {
                 headers = options.headers;
             }
             else {
-                headers = new i1$1.HttpHeaders(options.headers);
+                headers = new i1$2.HttpHeaders(options.headers);
             }
             headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
@@ -559,46 +881,270 @@
             return req;
         };
         return RelationshopHttpClient;
-    }(i1$1.HttpClient));
-    exports.ɵc.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopHttpClient_Factory() { return new exports.ɵc(i0.ɵɵinject(i1$1.HttpHandler), i0.ɵɵinject(exports.ɵd)); }, token: exports.ɵc, providedIn: "root" });
-    exports.ɵc = __decorate([
+    }(i1$2.HttpClient));
+    exports.ɵm.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopHttpClient_Factory() { return new exports.ɵm(i0.ɵɵinject(i1$2.HttpHandler), i0.ɵɵinject(exports.ɵk)); }, token: exports.ɵm, providedIn: "root" });
+    exports.ɵm = __decorate([
         i0.Injectable({
             providedIn: 'root'
         })
-    ], exports.ɵc);
+    ], exports.ɵm);
 
-    exports.ɵt = /** @class */ (function () {
-        function IframeModal(modalCtrl, router) {
-            this.modalCtrl = modalCtrl;
-            this.router = router;
-            this.deviceMode = '';
-            this.deviceMode = ENV.DeviceMode;
-            if (this.deviceMode == 'Web') {
-                window.parent.postMessage('scroll-top', '*');
+    exports.ɵn = /** @class */ (function (_super) {
+        __extends(RelationshopEComHttpClient, _super);
+        function RelationshopEComHttpClient(handler, cre) {
+            var _this = _super.call(this, handler) || this;
+            _this.cre = cre;
+            _this.api = ENV.EComHost;
+            _this.shopPath = 'InStore';
+            return _this;
+        }
+        RelationshopEComHttpClient.prototype.request = function (first, url, options) {
+            if (options === void 0) { options = {}; }
+            var override = {};
+            if (!options) {
+                options = {};
+            }
+            // end point url
+            // url =  ENV.APIUrl+ url;
+            url = this.api + url;
+            // token
+            var headers = undefined;
+            if (options.headers instanceof i1$2.HttpHeaders) {
+                headers = options.headers;
+            }
+            else {
+                headers = new i1$2.HttpHeaders(options.headers);
+            }
+            headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+            headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
+            headers = headers.set('ShopPath', this.shopPath);
+            // headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
+            options.headers = headers;
+            var req = _super.prototype.request.call(this, first, url, options);
+            return req;
+        };
+        return RelationshopEComHttpClient;
+    }(i1$2.HttpClient));
+    exports.ɵn.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopEComHttpClient_Factory() { return new exports.ɵn(i0.ɵɵinject(i1$2.HttpHandler), i0.ɵɵinject(exports.ɵk)); }, token: exports.ɵn, providedIn: "root" });
+    exports.ɵn = __decorate([
+        i0.Injectable({
+            providedIn: 'root'
+        })
+        // export class RelationshopEComHttpClient extends RelationshopHttpClient{
+        // 	protected api = ENV.EComHost;
+        // }
+    ], exports.ɵn);
+
+    exports.ɵp = /** @class */ (function (_super) {
+        __extends(RelationshopOnlineEComHttpClient, _super);
+        function RelationshopOnlineEComHttpClient() {
+            var _this = _super.apply(this, __spread(arguments)) || this;
+            _this.shopPath = 'Online';
+            return _this;
+        }
+        return RelationshopOnlineEComHttpClient;
+    }(exports.ɵn));
+    exports.ɵp.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopOnlineEComHttpClient_Factory() { return new exports.ɵp(i0.ɵɵinject(i1$2.HttpHandler), i0.ɵɵinject(exports.ɵk)); }, token: exports.ɵp, providedIn: "root" });
+    exports.ɵp = __decorate([
+        i0.Injectable({
+            providedIn: 'root'
+        })
+        // export class RelationshopEComHttpClient extends RelationshopHttpClient{
+        // 	protected api = ENV.EComHost;
+        // }
+    ], exports.ɵp);
+
+    exports.ɵl = /** @class */ (function () {
+        function CurrentStore(cache, api, cre, ecapi, platform, events) {
+            var _this = this;
+            this.cache = cache;
+            this.api = api;
+            this.cre = cre;
+            this.ecapi = ecapi;
+            this.platform = platform;
+            this.events = events;
+            // public store$: ReplaySubject<any>;
+            this.cacheKey = 'cache-currentStore';
+            this.store$ = new rxjs.ReplaySubject(1);
+            this.events.subscribe('change-store', function (data) { return __awaiter(_this, void 0, void 0, function () {
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            if (!data) return [3 /*break*/, 1];
+                            this.setStore(data);
+                            return [3 /*break*/, 3];
+                        case 1:
+                            _a = this.setStore;
+                            return [4 /*yield*/, this.loadStore()];
+                        case 2:
+                            _a.apply(this, [_b.sent()]);
+                            _b.label = 3;
+                        case 3: return [2 /*return*/];
+                    }
+                });
+            }); });
+        }
+        CurrentStore.prototype.init = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            _a = this.setStore;
+                            return [4 /*yield*/, this.loadStore()];
+                        case 1: return [4 /*yield*/, _a.apply(this, [_b.sent()])];
+                        case 2:
+                            _b.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        CurrentStore.prototype.getStore = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, _b;
+                return __generator(this, function (_c) {
+                    switch (_c.label) {
+                        case 0:
+                            if (!(this.store === undefined)) return [3 /*break*/, 2];
+                            _a = this;
+                            return [4 /*yield*/, this.cache.getItem(this.cacheKey).catch(function () {
+                                    return null;
+                                })];
+                        case 1:
+                            _a.store = _c.sent();
+                            _c.label = 2;
+                        case 2:
+                            if (!(this.store === undefined)) return [3 /*break*/, 5];
+                            _b = this.setStore;
+                            return [4 /*yield*/, this.loadStore()];
+                        case 3: 
+                        /*
+                        const user = await this.cre.getCurrentUser();
+                        if (user && user.StoreID) {
+                            const store = await this.getStoreById(user.StoreID).toPromise();
+                            await this.setStore(store);
+                        }
+                        */
+                        return [4 /*yield*/, _b.apply(this, [_c.sent()])];
+                        case 4:
+                            /*
+                            const user = await this.cre.getCurrentUser();
+                            if (user && user.StoreID) {
+                                const store = await this.getStoreById(user.StoreID).toPromise();
+                                await this.setStore(store);
+                            }
+                            */
+                            _c.sent();
+                            _c.label = 5;
+                        case 5: return [2 /*return*/, this.store];
+                    }
+                });
+            });
+        };
+        CurrentStore.prototype.setStore = function (store) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            if (store) {
+                                store.IsEcomm = false;
+                                if (store.Pickup == true || store.Delivery == true) {
+                                    store.IsEcomm = true;
+                                }
+                                // store.ShopPath = 'Online';
+                                // store.ShopPath = 'Instore';
+                            }
+                            // console.log(store);
+                            this.store = store;
+                            return [4 /*yield*/, this.cache.saveItem(this.cacheKey, store, undefined, 60 * 60 * 12 * 15)];
+                        case 1:
+                            _a.sent();
+                            this.store$.next(store);
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        CurrentStore.prototype.getStoreById = function (id) {
+            var seq = this.api.get('/stores/' + id);
+            return seq;
+        };
+        CurrentStore.prototype.loadStore = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var user, store;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.cre.getCurrentUser()];
+                        case 1:
+                            user = _a.sent();
+                            store = null;
+                            if (!!user) return [3 /*break*/, 3];
+                            return [4 /*yield*/, this.cache.getItem(this.cacheKey).catch(function () {
+                                    return null;
+                                })];
+                        case 2:
+                            // load form cache
+                            store = _a.sent();
+                            return [3 /*break*/, 5];
+                        case 3:
+                            if (!user.StoreID) return [3 /*break*/, 5];
+                            return [4 /*yield*/, this.getStoreById(user.StoreID).toPromise()];
+                        case 4:
+                            store = _a.sent();
+                            if (!store) {
+                                return [2 /*return*/, null];
+                            }
+                            store.StoreType = this.displayStoreType(store);
+                            store.ShopPath = user.ShopPath;
+                            _a.label = 5;
+                        case 5: return [2 /*return*/, store];
+                    }
+                });
+            });
+        };
+        CurrentStore.prototype.isEcom = function () {
+            return this.store && this.store.ShopPath == 'Online';
+        };
+        /*
+        setCurrentStore(data, currentUser?) {
+            this.cache.saveItem('cache-currentStore', data, undefined, 60 * 60 * 12 * 15);
+            if (currentUser) {
+                this.setStoretoShoppingV3(currentUser, data);
             }
         }
-        return IframeModal;
-    }());
-    __decorate([
-        i0.Input()
-    ], exports.ɵt.prototype, "url", void 0);
-    __decorate([
-        i0.Input()
-    ], exports.ɵt.prototype, "title", void 0);
-    exports.ɵt = __decorate([
-        i0.Component({
-            selector: "iframe-modal",
-            template: "<ion-header class=\"\">\n    <ion-toolbar>\n        <ion-title>{{title}}</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content class=\"online-order-content\">\n    <ng-container *ngIf=\"url\">\n        <iframe [src]=\"url | safeResourceUrl\"></iframe>\n    </ng-container>\n</ion-content>",
-            styles: ["ion-title{padding:0 70px}h3{color:var(--online-order-primary-color);text-align:center;font-weight:700;margin:0}.txt-confirm{color:var(--online-order-blue)}.txt-confirm ion-label{font-weight:700}.link{color:var(--online-order-link-color);display:flex;align-items:center;justify-content:center}ion-label{font-size:14px}.online-order-content iframe{display:block;width:100%;height:100%;border:none}"]
-        })
-    ], exports.ɵt);
 
-    exports.ɵs = /** @class */ (function () {
+        setStoretoShoppingV3(user, store) {
+            return this.ecapi.put(`/user/store/v3?`, null, { params: { userId: user.ExternalCustomerCardID, storeId: store.ExternalID } });
+        }
+        */
+        CurrentStore.prototype.displayStoreType = function (store) {
+            if (!store || (!store.Pickup && !store.Delivery))
+                return "";
+            var pickupText = store.Pickup ? "Pickup " : "";
+            var deliveryText = store.Delivery ? "Delivery " : "";
+            var andText = store.Pickup && store.Delivery ? "& " : "";
+            var type = "" + deliveryText + andText + pickupText + "Available";
+            return type;
+        };
+        return CurrentStore;
+    }());
+    exports.ɵl.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentStore_Factory() { return new exports.ɵl(i0.ɵɵinject(i1$1.CacheService), i0.ɵɵinject(exports.ɵm), i0.ɵɵinject(exports.ɵk), i0.ɵɵinject(exports.ɵn), i0.ɵɵinject(i1.Platform), i0.ɵɵinject(i6.NgxPubSubService)); }, token: exports.ɵl, providedIn: "root" });
+    exports.ɵl = __decorate([
+        i0.Injectable({
+            providedIn: 'root'
+        })
+    ], exports.ɵl);
+
+    exports.ɵq = /** @class */ (function () {
         function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, 
         // @Inject(CacheService)public cache: CacheService,
         geolocation, 
         // public events: Events,
-        navCtrl, api, device, modalController
+        navCtrl, 
+        // @Inject(RelationshopHttpClient)public api: RelationshopHttpClient,
+        device, modalController
         /*public shoppingList: ShoppingList*/ ) {
             this.loadingCtrl = loadingCtrl;
             this.toastCtrl = toastCtrl;
@@ -606,7 +1152,6 @@
             this.alertCtrl = alertCtrl;
             this.geolocation = geolocation;
             this.navCtrl = navCtrl;
-            this.api = api;
             this.device = device;
             this.modalController = modalController;
             this.defaultImg = ENV.DefaultImg;
@@ -709,20 +1254,21 @@
             };
             this.navCtrl.navigateRoot(decodeURIComponent(backRoute), options);
         };
-        Utils.prototype.getCities = function () {
-            var _this = this;
-            // let seq = this.restangular.all('cities').customGET().share();
-            var seq = this.api.get('/cities', { params: { rCache: 'd', rCacheKey: 'cities' } }).pipe(operators.map(function (res) {
-                if (res.length == 0) {
-                    res = _this.cityList;
-                }
-                _this.setCache('cities', res);
-                return res;
-            }, function (err) {
-                console.error('ERROR', err);
-            }));
-            return seq;
-        };
+        // getCities() {
+        // 	// let seq = this.restangular.all('cities').customGET().share();
+        // 	let seq = this.api.get('/cities', { params: { rCache: 'd', rCacheKey: 'cities' } }).pipe(
+        // 		map((res: any) => {
+        // 			if (res.length == 0) {
+        // 				res = this.cityList;
+        // 			}
+        // 			this.setCache('cities', res);
+        // 			return res;
+        // 		}, err => {
+        // 			console.error('ERROR', err);
+        // 		})
+        // 	);
+        // 	return seq;
+        // }
         Utils.prototype.getOSName = function () {
             return this.device.platform;
         };
@@ -730,29 +1276,31 @@
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             return emailPattern.test(elementValue);
         };
-        Utils.prototype.getCityArea = function () {
-            var _this = this;
-            var seq = this.api.get('/cityarea/items', { params: { rCache: 'd', rCacheKey: 'city-area' } }).pipe(operators.map(function (res) {
-                if (res.length == 0) {
-                    res = _this.cityList;
-                }
-                return res;
-            }, function (err) {
-            }));
-            return seq;
-        };
-        Utils.prototype.getStates = function () {
-            var _this = this;
-            var seq = this.api.get('/states', { params: { rCache: 'd', rCacheKey: 'states' } }).pipe(operators.map(function (res) {
-                if (res.length == 0) {
-                    res = _this.statelist;
-                }
-                return res;
-            }, function (err) {
-                console.error('ERROR', err);
-            }));
-            return seq;
-        };
+        // getCityArea() {
+        // 	let seq = this.api.get('/cityarea/items', { params: { rCache: 'd', rCacheKey: 'city-area' } }).pipe(
+        // 		map((res: any) => {
+        // 			if (res.length == 0) {
+        // 				res = this.cityList;
+        // 			}
+        // 			return res;
+        // 		}, err => {
+        // 		})
+        // 	);
+        // 	return seq;
+        // }
+        // getStates() {
+        // 	let seq = this.api.get('/states', { params: { rCache: 'd', rCacheKey: 'states' } }).pipe(
+        // 		map((res: any) => {
+        // 			if (res.length == 0) {
+        // 				res = this.statelist;
+        // 			}
+        // 			return res;
+        // 		}, err => {
+        // 			console.error('ERROR', err);
+        // 		})
+        // 	);
+        // 	return seq;
+        // }
         Utils.prototype.getStore = function () {
             return this._store;
         };
@@ -1148,7 +1696,7 @@
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.modalController.create({
-                                component: exports.ɵt,
+                                component: exports.ɵr,
                                 cssClass: 'online-order-modal rs-medium-modal',
                                 componentProps: {
                                     url: url,
@@ -1432,10 +1980,10 @@
             coupon.IsAdded = couponsMap.IsAdded;
             return coupon;
         };
-        Utils.prototype.sendSupportEmail = function (obj) {
-            Object.assign(obj, { BannerID: ENV.DefaultBanerId });
-            return this.api.post('/feedbacks', obj);
-        };
+        // sendSupportEmail(obj: any) {
+        // 	Object.assign(obj, { BannerID: ENV.DefaultBanerId });
+        // 	return this.api.post('/feedbacks', obj)
+        // }
         Utils.prototype.rsAddress2ecomAddress = function (rsAddress) {
             // console.log('rsAddress', rsAddress);
             var address = {
@@ -1496,21 +2044,20 @@
         };
         return Utils;
     }());
-    exports.ɵs.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new exports.ɵs(i0.ɵɵinject(i1$2.LoadingController), i0.ɵɵinject(i1$2.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$2.AlertController), i0.ɵɵinject(i3.Geolocation), i0.ɵɵinject(i1$2.NavController), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(i5.Device), i0.ɵɵinject(i1$2.ModalController)); }, token: exports.ɵs, providedIn: "root" });
-    exports.ɵs = __decorate([
+    exports.ɵq.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new exports.ɵq(i0.ɵɵinject(i1.LoadingController), i0.ɵɵinject(i1.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1.AlertController), i0.ɵɵinject(i3.Geolocation), i0.ɵɵinject(i1.NavController), i0.ɵɵinject(i4.Device), i0.ɵɵinject(i1.ModalController)); }, token: exports.ɵq, providedIn: "root" });
+    exports.ɵq = __decorate([
         i0.Injectable({
             providedIn: 'root'
         }),
-        __param(0, i0.Inject(i1$2.LoadingController)),
-        __param(1, i0.Inject(i1$2.ToastController)),
+        __param(0, i0.Inject(i1.LoadingController)),
+        __param(1, i0.Inject(i1.ToastController)),
         __param(2, i0.Inject(ngx.InAppBrowser)),
-        __param(3, i0.Inject(i1$2.AlertController)),
+        __param(3, i0.Inject(i1.AlertController)),
         __param(4, i0.Inject(ngx$1.Geolocation)),
-        __param(5, i0.Inject(i1$2.NavController)),
-        __param(6, i0.Inject(exports.ɵc)),
-        __param(7, i0.Inject(ngx$2.Device)),
-        __param(8, i0.Inject(i1$2.ModalController))
-    ], exports.ɵs);
+        __param(5, i0.Inject(i1.NavController)),
+        __param(6, i0.Inject(ngx$2.Device)),
+        __param(7, i0.Inject(i1.ModalController))
+    ], exports.ɵq);
     function noop() { }
     ;
     function cacheErrorHandle() { return null; }
@@ -1541,936 +2088,7 @@
         }
     }
 
-    exports.ɵf = /** @class */ (function (_super) {
-        __extends(RelationshopEComHttpClient, _super);
-        function RelationshopEComHttpClient(handler, cre) {
-            var _this = _super.call(this, handler) || this;
-            _this.cre = cre;
-            _this.api = ENV.EComHost;
-            _this.shopPath = 'InStore';
-            return _this;
-        }
-        RelationshopEComHttpClient.prototype.request = function (first, url, options) {
-            if (options === void 0) { options = {}; }
-            var override = {};
-            if (!options) {
-                options = {};
-            }
-            // end point url
-            // url =  ENV.APIUrl+ url;
-            url = this.api + url;
-            // token
-            var headers = undefined;
-            if (options.headers instanceof i1$1.HttpHeaders) {
-                headers = options.headers;
-            }
-            else {
-                headers = new i1$1.HttpHeaders(options.headers);
-            }
-            headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-            headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
-            headers = headers.set('ShopPath', this.shopPath);
-            // headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
-            options.headers = headers;
-            var req = _super.prototype.request.call(this, first, url, options);
-            return req;
-        };
-        return RelationshopEComHttpClient;
-    }(i1$1.HttpClient));
-    exports.ɵf.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopEComHttpClient_Factory() { return new exports.ɵf(i0.ɵɵinject(i1$1.HttpHandler), i0.ɵɵinject(exports.ɵd)); }, token: exports.ɵf, providedIn: "root" });
-    exports.ɵf = __decorate([
-        i0.Injectable({
-            providedIn: 'root'
-        })
-        // export class RelationshopEComHttpClient extends RelationshopHttpClient{
-        // 	protected api = ENV.EComHost;
-        // }
-    ], exports.ɵf);
-
-    exports.ɵe = /** @class */ (function () {
-        function CurrentStore(cache, api, cre, ecapi, platform, events) {
-            var _this = this;
-            this.cache = cache;
-            this.api = api;
-            this.cre = cre;
-            this.ecapi = ecapi;
-            this.platform = platform;
-            this.events = events;
-            // public store$: ReplaySubject<any>;
-            this.cacheKey = 'cache-currentStore';
-            this.store$ = new rxjs.ReplaySubject(1);
-            this.events.subscribe('change-store', function (data) { return __awaiter(_this, void 0, void 0, function () {
-                var _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0:
-                            if (!data) return [3 /*break*/, 1];
-                            this.setStore(data);
-                            return [3 /*break*/, 3];
-                        case 1:
-                            _a = this.setStore;
-                            return [4 /*yield*/, this.loadStore()];
-                        case 2:
-                            _a.apply(this, [_b.sent()]);
-                            _b.label = 3;
-                        case 3: return [2 /*return*/];
-                    }
-                });
-            }); });
-        }
-        CurrentStore.prototype.init = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0:
-                            _a = this.setStore;
-                            return [4 /*yield*/, this.loadStore()];
-                        case 1: return [4 /*yield*/, _a.apply(this, [_b.sent()])];
-                        case 2:
-                            _b.sent();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        CurrentStore.prototype.getStore = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var _a, _b;
-                return __generator(this, function (_c) {
-                    switch (_c.label) {
-                        case 0:
-                            if (!(this.store === undefined)) return [3 /*break*/, 2];
-                            _a = this;
-                            return [4 /*yield*/, this.cache.getItem(this.cacheKey).catch(function () {
-                                    return null;
-                                })];
-                        case 1:
-                            _a.store = _c.sent();
-                            _c.label = 2;
-                        case 2:
-                            if (!(this.store === undefined)) return [3 /*break*/, 5];
-                            _b = this.setStore;
-                            return [4 /*yield*/, this.loadStore()];
-                        case 3: 
-                        /*
-                        const user = await this.cre.getCurrentUser();
-                        if (user && user.StoreID) {
-                            const store = await this.getStoreById(user.StoreID).toPromise();
-                            await this.setStore(store);
-                        }
-                        */
-                        return [4 /*yield*/, _b.apply(this, [_c.sent()])];
-                        case 4:
-                            /*
-                            const user = await this.cre.getCurrentUser();
-                            if (user && user.StoreID) {
-                                const store = await this.getStoreById(user.StoreID).toPromise();
-                                await this.setStore(store);
-                            }
-                            */
-                            _c.sent();
-                            _c.label = 5;
-                        case 5: return [2 /*return*/, this.store];
-                    }
-                });
-            });
-        };
-        CurrentStore.prototype.setStore = function (store) {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            if (store) {
-                                store.IsEcomm = false;
-                                if (store.Pickup == true || store.Delivery == true) {
-                                    store.IsEcomm = true;
-                                }
-                                // store.ShopPath = 'Online';
-                                // store.ShopPath = 'Instore';
-                            }
-                            // console.log(store);
-                            this.store = store;
-                            return [4 /*yield*/, this.cache.saveItem(this.cacheKey, store, undefined, 60 * 60 * 12 * 15)];
-                        case 1:
-                            _a.sent();
-                            this.store$.next(store);
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        CurrentStore.prototype.getStoreById = function (id) {
-            var seq = this.api.get('/stores/' + id);
-            return seq;
-        };
-        CurrentStore.prototype.loadStore = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var user, store;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.cre.getCurrentUser()];
-                        case 1:
-                            user = _a.sent();
-                            store = null;
-                            if (!!user) return [3 /*break*/, 3];
-                            return [4 /*yield*/, this.cache.getItem(this.cacheKey).catch(function () {
-                                    return null;
-                                })];
-                        case 2:
-                            // load form cache
-                            store = _a.sent();
-                            return [3 /*break*/, 5];
-                        case 3:
-                            if (!user.StoreID) return [3 /*break*/, 5];
-                            return [4 /*yield*/, this.getStoreById(user.StoreID).toPromise()];
-                        case 4:
-                            store = _a.sent();
-                            if (!store) {
-                                return [2 /*return*/, null];
-                            }
-                            store.StoreType = this.displayStoreType(store);
-                            store.ShopPath = user.ShopPath;
-                            _a.label = 5;
-                        case 5: return [2 /*return*/, store];
-                    }
-                });
-            });
-        };
-        CurrentStore.prototype.isEcom = function () {
-            return this.store && this.store.ShopPath == 'Online';
-        };
-        /*
-        setCurrentStore(data, currentUser?) {
-            this.cache.saveItem('cache-currentStore', data, undefined, 60 * 60 * 12 * 15);
-            if (currentUser) {
-                this.setStoretoShoppingV3(currentUser, data);
-            }
-        }
-
-        setStoretoShoppingV3(user, store) {
-            return this.ecapi.put(`/user/store/v3?`, null, { params: { userId: user.ExternalCustomerCardID, storeId: store.ExternalID } });
-        }
-        */
-        CurrentStore.prototype.displayStoreType = function (store) {
-            if (!store || (!store.Pickup && !store.Delivery))
-                return "";
-            var pickupText = store.Pickup ? "Pickup " : "";
-            var deliveryText = store.Delivery ? "Delivery " : "";
-            var andText = store.Pickup && store.Delivery ? "& " : "";
-            var type = "" + deliveryText + andText + pickupText + "Available";
-            return type;
-        };
-        return CurrentStore;
-    }());
-    exports.ɵe.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentStore_Factory() { return new exports.ɵe(i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(exports.ɵf), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(i6.NgxPubSubService)); }, token: exports.ɵe, providedIn: "root" });
-    exports.ɵe = __decorate([
-        i0.Injectable({
-            providedIn: 'root'
-        })
-    ], exports.ɵe);
-
-    var PermanentSettings_1;
-    exports.ɵg = PermanentSettings_1 = /** @class */ (function () {
-        function PermanentSettings(cache) {
-            this.cache = cache;
-            this.bkItems = [];
-            // this.cache.sa
-        }
-        PermanentSettings.prototype.saveItem = function (key, val) {
-            return this.cache.saveItem(key, val, null, PermanentSettings_1.cacheTime);
-        };
-        PermanentSettings.prototype.getItem = function (key) {
-            var _this = this;
-            return this.cache.getItem(key)
-                .then(function (val) {
-                // refresh extend time;
-                _this.saveItem(key, val);
-                return val;
-            })
-                .catch(function () { return null; });
-        };
-        PermanentSettings.prototype.backup = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var showedStoreVal;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.cache.getItem(PermanentSettings_1.SHOWED_SELECT_STORE).catch(cacheErrorHandle)];
-                        case 1:
-                            showedStoreVal = _a.sent();
-                            ;
-                            if (showedStoreVal !== null) {
-                                this.bkItems.push({ key: PermanentSettings_1.SHOWED_SELECT_STORE, val: showedStoreVal });
-                            }
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        PermanentSettings.prototype.restore = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var _this = this;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, Promise.all(this.bkItems.map(function (item) {
-                                return _this.saveItem(item.key, item.val);
-                            }))];
-                        case 1:
-                            _a.sent();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        return PermanentSettings;
-    }());
-    exports.ɵg.cacheTime = 60 * 60 * 24 * 300; // 300 days
-    exports.ɵg.SHOWED_SELECT_STORE = 'SHOWED_SELECT_STORE';
-    exports.ɵg.SHOWED_NEWS_55 = 'SHOWED_NEWS_55';
-    exports.ɵg.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function PermanentSettings_Factory() { return new exports.ɵg(i0.ɵɵinject(i1.CacheService)); }, token: exports.ɵg, providedIn: "root" });
-    exports.ɵg = PermanentSettings_1 = __decorate([
-        i0.Injectable({
-            providedIn: 'root'
-        })
-    ], exports.ɵg);
-
-    exports.ɵb = /** @class */ (function () {
-        // public  authState: Observable<any>;
-        function AuthService(rsapi, cre, cache, cStore, network, platform, pSettings) {
-            var _this = this;
-            this.rsapi = rsapi;
-            this.cre = cre;
-            this.cache = cache;
-            this.cStore = cStore;
-            this.network = network;
-            this.platform = platform;
-            this.pSettings = pSettings;
-            this.underGuestFlow = false;
-            this.authState$ = new rxjs.ReplaySubject(1);
-            this.cache.setOfflineInvalidate(false);
-            this.platform.ready().then(function () {
-                _this.init();
-            });
-        }
-        AuthService.prototype.init = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var isOffLine, ready, user, token, haveToken, freshCre, apiUser;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            isOffLine = this.network.type == this.network.Connection.NONE;
-                            return [4 /*yield*/, this.cache.ready()];
-                        case 1:
-                            ready = _a.sent();
-                            if (!!isOffLine) return [3 /*break*/, 3];
-                            return [4 /*yield*/, this.cache.clearExpired()];
-                        case 2:
-                            _a.sent();
-                            _a.label = 3;
-                        case 3: return [4 /*yield*/, this.cre.getCurrentUser()];
-                        case 4:
-                            user = _a.sent();
-                            return [4 /*yield*/, this.cre.getRsApiToken()];
-                        case 5:
-                            token = _a.sent(), haveToken = !!this.cre.rsApiToken;
-                            // if have token, refresh token, refresh user info. It token is not valid: logout
-                            // console.log('from Cache:', user, token);
-                            if (isOffLine) {
-                                this.authState$.next(this.cre.currentUser);
-                                return [2 /*return*/];
-                            }
-                            if (!haveToken) return [3 /*break*/, 12];
-                            return [4 /*yield*/, this.validateToken(this.cre.rsApiToken).toPromise().catch(noop)];
-                        case 6:
-                            freshCre = _a.sent();
-                            if (!freshCre) return [3 /*break*/, 9];
-                            return [4 /*yield*/, this.cre.setCurrentUser(freshCre.User)];
-                        case 7:
-                            _a.sent();
-                            return [4 /*yield*/, this.cre.setRsApiToken(freshCre.Token)];
-                        case 8:
-                            _a.sent();
-                            return [3 /*break*/, 12];
-                        case 9: 
-                        // console.log('invalid Token set Null');
-                        return [4 /*yield*/, this.cre.setCurrentUser(null)];
-                        case 10:
-                            // console.log('invalid Token set Null');
-                            _a.sent();
-                            return [4 /*yield*/, this.cre.setRsApiToken(null)];
-                        case 11:
-                            _a.sent();
-                            _a.label = 12;
-                        case 12:
-                            if (!!this.cre.rsApiToken) return [3 /*break*/, 15];
-                            return [4 /*yield*/, this.requestAccessToken().toPromise().catch(noop)];
-                        case 13:
-                            apiUser = _a.sent();
-                            if (!apiUser) return [3 /*break*/, 15];
-                            return [4 /*yield*/, this.cre.setRsApiToken(apiUser.AccessToken)];
-                        case 14:
-                            _a.sent();
-                            _a.label = 15;
-                        case 15:
-                            // console.log(this.cre);
-                            this.authState$.next(this.cre.currentUser);
-                            this.cStore.init();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        AuthService.prototype.authState = function () {
-            return this.authState$.asObservable();
-        };
-        AuthService.prototype.getCurrentUser = function () {
-            return this.authState();
-        };
-        AuthService.prototype.requestAccessToken = function () {
-            // console.log('request access token');
-            var tokenRequest = {
-                Username: ENV.APIUserName,
-                Password: ENV.APIPassword
-            };
-            return this.rsapi.post("/tokens/" + ENV.APIComsumerKey, tokenRequest);
-        };
-        // valite Token , refresh Token
-        AuthService.prototype.validateToken = function (token) {
-            var _this = this;
-            return this.rsapi.post('/tokens/validate', "\"" + token + "\"").pipe(
-            // return this.rsapi.post(`/tokens`, `"${token}"`).pipe(
-            operators.switchMap(function (rs) {
-                // invalid token
-                if (!rs) {
-                    return rxjs.of(null);
-                }
-                // anoymous token
-                if (!_this.cre.currentUser || rs.Name == 'UnitedApiUser') {
-                    return rxjs.of({ Token: rs.AccessToken, User: null });
-                }
-                // user token
-                return _this.getUser(_this.cre.currentUser.UserID).pipe(operators.map(function (user) {
-                    return { Token: rs.AccessToken, User: user };
-                }));
-                ;
-            }), operators.catchError(function () {
-                return rxjs.of(null);
-            }));
-        };
-        AuthService.prototype.login = function (accountInfo) {
-            var _this = this;
-            return this.rsapi.post("/login?un=" + accountInfo.username, '"' + accountInfo.password + '"').pipe(operators.switchMap(function (res) {
-                // login failed
-                if (!res.User) {
-                    // return of({Token: null, User: null, msg: res.Message});
-                    throw { statusText: res.Message };
-                }
-                // login sucess
-                return _this.getUser(res.User.UserID).pipe(operators.map(function (user) {
-                    return { Token: res.Token, User: user };
-                }));
-            }), 
-            // update current select store to user
-            operators.switchMap(function (cre) {
-                if (!cre || !_this.cStore.store) {
-                    return rxjs.of(cre);
-                }
-                /*
-                 case have cre and have current store,
-                 update curent store to current user
-                */
-                var user = cre.User, store = _this.cStore.store;
-                user.StoreID = store.CS_StoreID;
-                user.StoreZipCode = store.Zipcode;
-                user.StoreName = store.StoreName;
-                user.ShopPath = store.ShopPath === "Online" ? "Online" : "InStore";
-                return _this.rsapi.put("/users/" + user.UserID, user).pipe(operators.map(function () {
-                    return cre;
-                }), operators.catchError(function (error) {
-                    return rxjs.of(cre);
-                }));
-            }), operators.switchMap(function (cre) {
-                // login false
-                // if(!cre.User || !cre.Token){
-                // 	throw cre.msg;
-                // }
-                var o1 = _this.cre.setCurrentUser(cre.User), o2 = _this.cre.setRsApiToken(cre.Token), o3 = _this.cStore.init();
-                return rxjs.from([o1, o2, o3]).pipe(operators.switchMap(function () {
-                    return o3;
-                }), operators.map(function () {
-                    _this.authState$.next(_this.cre.currentUser);
-                    return cre;
-                }));
-            }));
-        };
-        AuthService.prototype.logout = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var apiUser;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: 
-                        // backup perperment settings
-                        return [4 /*yield*/, this.pSettings.backup()];
-                        case 1:
-                            // backup perperment settings
-                            _a.sent();
-                            return [4 /*yield*/, this.cache.clearAll()];
-                        case 2:
-                            _a.sent();
-                            return [4 /*yield*/, this.cre.setCurrentUser(null)];
-                        case 3:
-                            _a.sent();
-                            return [4 /*yield*/, this.cStore.setStore(null)];
-                        case 4:
-                            _a.sent();
-                            return [4 /*yield*/, this.pSettings.restore()];
-                        case 5:
-                            _a.sent();
-                            return [4 /*yield*/, this.requestAccessToken().toPromise().catch(noop)];
-                        case 6:
-                            apiUser = _a.sent();
-                            if (!apiUser) return [3 /*break*/, 8];
-                            return [4 /*yield*/, this.cre.setRsApiToken(apiUser.AccessToken)];
-                        case 7:
-                            _a.sent();
-                            _a.label = 8;
-                        case 8:
-                            this.authState$.next(null);
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        AuthService.prototype.getUser = function (userId) {
-            var _this = this;
-            return this.rsapi.get('/users/' + userId).pipe(operators.tap(function (user) {
-                /*
-                if(user.ExternalCustomerID){
-                    return of(user);
-                }
-                return this.updateExternalCustomerID(user);
-                */
-                _this.updateExternalCustomerID(user).pipe(operators.take(1)).subscribe();
-            }));
-        };
-        AuthService.prototype.refreshUser = function () {
-            var _this = this;
-            return this.getUser(this.cre.currentUser.UserID).pipe(operators.tap(function (user) {
-                _this.cre.setCurrentUser(user);
-            }));
-        };
-        AuthService.prototype.getCardDemographic = function (userSRCardID, refresher) {
-            var params = {};
-            var cacheGroup = 'reward';
-            Object.assign(params, refreshParam(refresher, cacheGroup, null));
-            return this.rsapi.get("/cards/" + userSRCardID + "/demographic", { params: params });
-        };
-        AuthService.prototype.updateExternalCustomerID = function (user) {
-            try {
-                return this.getCardDemographic(user.SRCardID).pipe(operators.map(function (cardDemographic) {
-                    if (cardDemographic && cardDemographic.CustomerCode) {
-                        user.ExternalCustomerID = cardDemographic.CustomerCode + '';
-                        user.Segments = cardDemographic.Segments;
-                    }
-                    return user;
-                }));
-            }
-            catch (error) {
-                return rxjs.of(null);
-            }
-        };
-        AuthService.prototype.sendEmailVerification = function (username) {
-            return this.rsapi.post('/email-verification?sender=' + username + '&bannerId=' + ENV.DefaultBanerId, "");
-        };
-        AuthService.prototype.toogleGuestFlow = function (t) {
-            this.underGuestFlow = t;
-            // this.cache.saveItem('allow-guest', true,undefined, 3.154e+8); // expired in 10 years;
-        };
-        AuthService.prototype.isUnderGuestFlow = function () {
-            return rxjs.of(this.underGuestFlow);
-        };
-        // FaceID
-        AuthService.prototype.getIsFace = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var value;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.cache.getItem('isFace').catch(function () { return (null); })];
-                        case 1:
-                            value = _a.sent();
-                            if (value === null) {
-                                value = true;
-                            }
-                            return [2 /*return*/, value];
-                    }
-                });
-            });
-        };
-        AuthService.prototype.setIsFace = function (value) {
-            var cacheTime = 60 * 60 * 24 * 60; // 60 days
-            this.cache.saveItem('isFace', value, null, cacheTime);
-        };
-        //Notification
-        AuthService.prototype.getNotification = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var value;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.cache.getItem('setting-notification').catch(function () { return (null); })];
-                        case 1:
-                            value = _a.sent();
-                            if (value === null) {
-                                value = true;
-                            }
-                            return [2 /*return*/, value];
-                    }
-                });
-            });
-        };
-        AuthService.prototype.setNotification = function (value) {
-            return __awaiter(this, void 0, void 0, function () {
-                var cacheTime;
-                return __generator(this, function (_a) {
-                    cacheTime = 60 * 60 * 24 * 60;
-                    this.cache.saveItem('setting-notification', value, null, cacheTime);
-                    return [2 /*return*/];
-                });
-            });
-        };
-        return AuthService;
-    }());
-    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(i5$1.Network), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
-    exports.ɵb = __decorate([
-        i0.Injectable({
-            providedIn: 'root'
-        })
-    ], exports.ɵb);
-
-    exports.ɵa = /** @class */ (function () {
-        function TutorialPage(router, route, storage, auth) {
-            this.router = router;
-            this.route = route;
-            this.storage = storage;
-            this.auth = auth;
-            this.info = {
-                version: 1,
-                buildNumber: 1,
-            };
-            var back = this.route.snapshot.paramMap.get('back');
-            if (back) {
-                this.back = back;
-            }
-            // this.wellcomeType = navParams.get('wellcomeType');
-        }
-        TutorialPage.prototype.ionViewWillEnter = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var user;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            console.log("🚀 ~ file: tutorial.ts ~ line 32 ~ TutorialPage ~ ionViewWillEnter ~ ionViewWillEnter");
-                            return [4 /*yield*/, this.auth.authState().pipe(operators.take(1)).toPromise()];
-                        case 1:
-                            user = _a.sent();
-                            console.log("🚀 ~ file: tutorial.ts ~ line 34 ~ TutorialPage ~ ionViewWillEnter ~ user", user);
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        TutorialPage.prototype.startTour = function () {
-            this.isStartTour = true;
-        };
-        return TutorialPage;
-    }());
-    exports.ɵa = __decorate([
-        i0.Component({
-            selector: 'page-tutorial',
-            template: "<ion-header>\n    <ion-toolbar class=\"ion-no-line\" [ngClass]=\"{'bg-gray':isStartTour}\">\n        <ion-title>About Our App</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-back-button defaultHref=\"home\" text=\"\" icon=\"md-close\" color=\"dark\"></ion-back-button>\n            <!-- <ion-button [routerLink]=\"[back]\" *ngIf=\"back\">\n                <ion-icon slot=\"icon-only\" name=\"md-close\" color=\"dark\"></ion-icon>\n            </ion-button> -->\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content [ngClass]=\"{'bg-gray':isStartTour}\">\n    <div class=\"first-tour\" *ngIf=\"!isStartTour\">\n        <div>\n            <ion-text color=\"secondary\" class=\"ion-text-center\">\n                <h1 class=\"secondary\">\n                    Shop Your Way!\n                </h1>\n            </ion-text>\n            <ion-text color=\"tertiary\" class=\"ion-text-center\">\n                <h4>\n                    Order online or make your list and <br> shop in the store!\n                </h4>\n            </ion-text>\n            <div class=\"image-container ion-text-center\">\n                <img src=\"assets/img/step1-01.png\" />\n            </div>\n            <ion-text class=\"ion-text-center\">\n                <p class=\"ion-margin-bottom ion-no-margin\">\n                    You choose how to shop! <br>\n                    Online pickup & delivery orders <br> or build a list to shop in-store. <br>\n                    It's easy with our new App!\n                </p>\n            </ion-text>\n            <ion-row>\n                <ion-col size=\"5\" offset=\"3.5\">\n                    <ion-button expand=\"block\" color=\"primary\" (click)=\"startTour()\">NEXT</ion-button>\n                </ion-col>\n\n            </ion-row>\n        </div>\n    </div>\n    <div class=\"slides-wrapper\" *ngIf=\"isStartTour\">\n        <ion-slides #slides [pager]=\"true\">\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step2-01.png\" />\n                    </div>\n\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Allow Notifications!\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Turn on notifications so you can receive our <br>\n                            special offers and deals!\n                        </p>\n                    </ion-text>\n                    <!-- <p class=\"title\" style=\"margin-bottom: 0px\">\n                        Our Healthy Rewards app<br />\n                        is getting an update,<br />\n                        making it easier to save, earn,<br />\n                        and live healthy!\n                    </p>\n                    <p class=\"next-img\">Take a tour to learn more!\n                    <p>\n                    <p class=\"begin\">SWIPE TO BEGIN</p> -->\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step3-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            New Rewards Dashboard\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            View your points & rewards. See all offers &<br>\n                            coupons added to your account and access<br>\n                            previous purchases to quickly build your <br>\n                            grocery list or shop online.\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step4-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Shopping Lists\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Search your store for the exact products you<br>\n                            buy. Easily check items off your list while<br>\n                            shopping in the store!\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step5-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Shop Our Weekly Ad\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Love to save? Shop our weekly ad!<br>\n                            Easily add weekly deals right to <br>\n                            your list or cart!\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n            <ion-slide>\n                <div>\n                    <div class=\"image-container ion-text-center\">\n                        <img src=\"assets/img/step6-01.png\" />\n                    </div>\n                    <ion-text color=\"secondary\" class=\"ion-text-center\">\n                        <h1 class=\"secondary ion-no-margin-top\">\n                            Buy Again\n                        </h1>\n                    </ion-text>\n                    <ion-text class=\"ion-text-center\">\n                        <p class=\"ion-margin-bottom ion-no-margin\">\n                            Items you buy most often are right on the<br>\n                            home screen so you can quickly add to<br>\n                            your list or shopping cart for online orders.\n                        </p>\n                    </ion-text>\n                </div>\n            </ion-slide>\n        </ion-slides>\n    </div>\n</ion-content>",
-            styles: ["ion-title{color:#666}h1.secondary{color:var(--ion-color-secondary)}.first-tour{float:left;width:100%;height:calc(100% - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0));margin-bottom:10px}.first-tour .image-container{height:40vh}.first-tour .image-container img{height:100%}.bg-gray{--background:#efeff0}.ion-no-margin-top{margin-top:0}ion-slides{height:calc(100vh - 60px - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0))}ion-slide div{height:100%}p{color:#666;font-size:16px}.title{color:var(--ion-color-primary);font-weight:700;font-size:24px}ion-slide:nth-child(2) .next-img{margin-top:0}ion-slide:nth-child(3) .next-img{margin-top:-100px}ion-slide:nth-child(4) .next-img{margin-top:-20px}ion-slide:nth-child(5) .next-img{margin-top:-60px}ion-slide:nth-child(6) .next-img{margin-top:-20px}ion-slide:first-child img{margin-top:0}.begin{color:var(--ion-color-primary);font-weight:700;letter-spacing:2px;margin-bottom:30px}.next-img{margin-top:-30px}ion-slides{--bullet-background:var(--ion-color-primary);--bullet-background-active:var(--ion-color-secondary)}.tapx{color:var(--ion-color-primary);font-size:20px}.slides-wrapper{height:calc(100vh - 260px - var(--ion-safe-area-top, 0) - var(--ion-safe-area-bottom, 0));margin-bottom:10px}.slides-wrapper .image-container{height:70%}"]
-        }),
-        __param(0, i0.Inject(router.Router)),
-        __param(1, i0.Inject(router.ActivatedRoute)),
-        __param(2, i0.Inject(storage.Storage)),
-        __param(3, i0.Inject(exports.ɵb))
-    ], exports.ɵa);
-
-    /**
-     * Generated class for the PhoneFormatPipe pipe.
-     *
-     * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
-     */
-    exports.ɵk = /** @class */ (function () {
-        function PhoneFormatPipe() {
-        }
-        PhoneFormatPipe.prototype.transform = function (tel, args) {
-            if (!!tel) {
-                var value = tel.toString().trim().replace(/^\+/, '');
-                if (value.match(/[^0-9]/)) {
-                    return tel;
-                }
-                var country, city, number;
-                switch (value.length) {
-                    case 10: // +1PPP####### -> C (PPP) ###-####
-                        country = 1;
-                        city = value.slice(0, 3);
-                        number = value.slice(3);
-                        break;
-                    case 11: // +CPPP####### -> CCC (PP) ###-####
-                        country = value[0];
-                        city = value.slice(1, 4);
-                        number = value.slice(4);
-                        break;
-                    case 12: // +CCCPP####### -> CCC (PP) ###-####
-                        country = value.slice(0, 3);
-                        city = value.slice(3, 5);
-                        number = value.slice(5);
-                        break;
-                    default:
-                        return tel;
-                }
-                if (country == 1) {
-                    country = "";
-                }
-                number = number.slice(0, 3) + '-' + number.slice(3);
-                return (country + city + "-" + number).trim();
-            }
-        };
-        return PhoneFormatPipe;
-    }());
-    exports.ɵk = __decorate([
-        i0.Pipe({
-            name: 'phoneFormat',
-        }),
-        i0.Injectable()
-    ], exports.ɵk);
-
-    exports.ɵl = /** @class */ (function () {
-        function SafeHtmlPipe(sanitized) {
-            this.sanitized = sanitized;
-        }
-        SafeHtmlPipe.prototype.transform = function (value) {
-            return this.sanitized.bypassSecurityTrustHtml(value);
-        };
-        return SafeHtmlPipe;
-    }());
-    exports.ɵl = __decorate([
-        i0.Pipe({ name: 'safeHtml' })
-    ], exports.ɵl);
-
-    exports.ɵi = /** @class */ (function () {
-        function LearnMore(router, 
-        // public state: ActivatedRouteSnapshot,
-        modalCtrl) {
-            this.router = router;
-            this.modalCtrl = modalCtrl;
-            this.backUrl = this.router.url;
-        }
-        return LearnMore;
-    }());
-    exports.ɵi = __decorate([
-        i0.Component({
-            selector: 'learn-more',
-            template: "<ion-header>\n\t<ion-toolbar class=\"ion-no-line\">\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"modalCtrl.dismiss()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" color=\"dark\" name=\"md-close\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-grid class=\"ion-padding-horizontal\">\n    <ion-row>\n      <ion-col class=\"ion-text-center\">\n        <ion-img style=\"width: 100%; height: 90px; background: transparent !important;\" src=\"assets/imgs/learnMoreLogo.png\"></ion-img>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Sign Up!</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Earn and redeem rewards for\n          savings at checkout and the pump,\n          plus enjoy access to online\n          shopping, digital coupons and\n          exclusive clubs.</ion-label>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Shop & Earn!</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Fill your basket and earn a point for\n          every dollar you spend. Gift card*\n          purchases earn double points!</ion-label>\n      </ion-col>\n    </ion-row>\n    <ion-row class=\"ion-padding-horizontal\">\n      <ion-col class=\"ion-text-center\">\n        <ion-label class=\"ion-text-center\" color=\"secondary\" class=\"cus-headline-1\">Save</ion-label>\n        <ion-label class=\"ion-text-left\" color=\"color-text\" class=\"cus-lgBody\">Automatically earn a Reward for\n          every 100 points. Redeem Rewards\n          for big discounts, free products or\n          up to $1 off per gallon of gas!</ion-label>\n      </ion-col>\n    </ion-row>\n    <!-- <ion-row padding-horizontal>\n      <ion-col text-center>\n        <button class=\"cus-lgButton\" ion-button color=\"primary\" round (click)=\"openSignUp()\">SIGN UP</button>\n      </ion-col>\n    </ion-row> -->\n  </ion-grid>\n</ion-content>",
-            styles: ["ion-img img{margin-left:auto;margin-right:auto}.btn{width:110px;height:40px}.cus-headline-1{color:var(--ion-color-tertiary)}ion-label{display:block;text-overflow:clip;white-space:normal}.cus-headline-1{padding:0}"]
-        })
-    ], exports.ɵi);
-
-    exports.ɵh = /** @class */ (function () {
-        function GuestMsg(router, 
-        // public state: ActivatedRouteSnapshot,
-        modalCtrl, navCtrl, events) {
-            this.router = router;
-            this.modalCtrl = modalCtrl;
-            this.navCtrl = navCtrl;
-            this.events = events;
-            this.backUrl = this.router.url;
-        }
-        GuestMsg.prototype.goLogin = function () {
-            this.modalCtrl.dismiss(true);
-            this.events.publishEvent('close-modal');
-            this.navCtrl.navigateRoot(['/login', { returnRoute: this.backUrl || '' }]);
-        };
-        GuestMsg.prototype.goSignup = function () {
-            this.modalCtrl.dismiss(true);
-            this.events.publishEvent('close-modal');
-            this.navCtrl.navigateRoot(['/signup', { returnRoute: this.backUrl || '' }]);
-        };
-        GuestMsg.prototype.showLearn = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var m;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.modalCtrl.create({
-                                component: exports.ɵi
-                            })];
-                        case 1:
-                            m = _a.sent();
-                            m.present();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        return GuestMsg;
-    }());
-    exports.ɵh = __decorate([
-        i0.Component({
-            selector: 'guest-msg',
-            template: "<ion-header>\n\t<ion-toolbar class=\"ion-no-line\">\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"modalCtrl.dismiss()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" color=\"dark\" name=\"md-close\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<h1>\n\t\tSign up to shop online,<br />\n\t\tcreate lists & more!\n\t</h1>\n\t<p>\n\t\tIn addition to earning and redeeming<br />\n\t\trewards for savings at check out and<br />\n\t\tthe pump, signing up for a Rewards<br />\n\t\taccount allows you to create lists,<br />\n\t\tshop online & access special offers<br />\n\t\tand digital coupons\n\t</p>\n\t<ion-row>\n\t\t<ion-col size=\"12\">\n\t\t\t<ion-button class=\"action\" color=\"secondary\" (click)=\"goLogin()\">LOG IN</ion-button>\n\t\t\t<ion-button class=\"action\" color=\"tertiary\" (click)=\"goSignup()\">SIGN UP</ion-button>\n\t\t</ion-col>\n\t\t<ion-col class=\"ion-text-center guest\" size=\"12\">\n\t      <ion-label (click)=\"showLearn()\" color=\"blue-light\" class=\"learn-more-lbl\">\n\t        Learn more >\n\t      </ion-label>\n\t    </ion-col>\n\t</ion-row>\n</ion-content>",
-            styles: [":host{text-align:center}h1{font-size:var(--dxp-fz-huge);color:var(--ion-color-primary);margin-bottom:30px}.learn-more-lbl{display:block;margin-top:30px;color:var(--ion-color-blue-light)}ion-button.action{width:100px}"]
-        })
-    ], exports.ɵh);
-
     exports.ɵo = /** @class */ (function () {
-        function SkeletonComponent() {
-        }
-        SkeletonComponent.prototype.ngOnInit = function () {
-        };
-        SkeletonComponent.prototype.ngOnChanges = function (changes) {
-        };
-        return SkeletonComponent;
-    }());
-    exports.ɵo = __decorate([
-        i0.Component({
-            selector: 'skeleton-component',
-            template: "<div class=\"img-wrapper\">\n        <ion-skeleton-text animated class=\"image\"></ion-skeleton-text>\n</div>\n<div class=\"item ion-padding-top\">\n    <ion-skeleton-text animated></ion-skeleton-text>\n</div>\n<div class=\"item\">\n    <ion-skeleton-text animated></ion-skeleton-text>\n</div>\n<div class=\"item\">\n    <ion-skeleton-text animated></ion-skeleton-text>\n</div>",
-            styles: [".image{width:90%;height:150px;margin:auto}.item{padding-top:5px}.item ion-skeleton-text{line-height:18px;width:60%;margin:auto}"]
-        })
-    ], exports.ɵo);
-
-    exports.ɵp = /** @class */ (function () {
-        function CheckOrderModal(cre, cStore, cache, router, alertCtrl, appSettings, utils, modalCtrl) {
-            this.cre = cre;
-            this.cStore = cStore;
-            this.cache = cache;
-            this.router = router;
-            this.alertCtrl = alertCtrl;
-            this.appSettings = appSettings;
-            this.utils = utils;
-            this.modalCtrl = modalCtrl;
-            this.currentUser = {};
-        }
-        CheckOrderModal.prototype.ngOnInit = function () {
-        };
-        CheckOrderModal.prototype.viewOrderSummary = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.modalCtrl.dismiss()];
-                        case 1:
-                            _a.sent();
-                            this.router.navigate(['/tabs/purchase/order-sumary', { orderId: this.latestOnlineOrder.OrderId }]);
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        return CheckOrderModal;
-    }());
-    exports.ɵp = __decorate([
-        i0.Component({
-            selector: 'check-order-modal',
-            template: "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-grid>\n        <ion-row>\n            <ion-col class=\"ion-text-center\">\n                <ion-label class=\"title-check-order\"><span class=\"txt\">Order:\n                    </span><span>{{latestOnlineOrder.OrderId}}</span>\n                </ion-label>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col class=\"ion-text-center\">\n                <div class=\"order-status\">\n                    <div class=\"status-title\"\n                        [ngClass]=\"{'order-status-active': latestOnlineOrder.Status == 'New Order' || latestOnlineOrder.Status == 'Comleted' || latestOnlineOrder.Status == 'Processing'}\">\n                        <span class=\"dot\"></span><span class=\"line line-top\"></span><span>Recevied</span></div>\n                    <div class=\"status-title\"\n                        [ngClass]=\"{'order-status-active': latestOnlineOrder.Status == 'Processing' || latestOnlineOrder.Status == 'Comleted'}\">\n                        <span class=\"dot\"></span><span class=\"line line-middle\"></span><span>Processing</span></div>\n                    <div class=\"status-title\"\n                        [ngClass]=\"{'order-status-active': latestOnlineOrder.Status == 'Comleted'}\"><span\n                            class=\"dot \"></span><span class=\"line line-bottom \"></span><span>Completed</span></div>\n                </div>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col class=\"ion-text-center\">\n                <ion-button class=\"view-order-summary-btn\" color=\"secondary\" (click)=\"viewOrderSummary()\">\n                    View Order Summary\n                </ion-button>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>",
-            styles: ["ion-content ion-grid .title-check-order{margin:0;font-size:22px}ion-content ion-grid .title-check-order .txt{color:var(--ion-color-primary);font-weight:700}ion-content ion-grid .order-status{font-size:18px;margin-left:25%}ion-content ion-grid .order-status .status-title{display:flex;align-items:center;padding:6px 0;position:relative;font-size:20px;height:55px}ion-content ion-grid .order-status .status-title .dot{height:22px;width:22px;background-color:var(--ion-color-gray-light);border-radius:50%;display:inline-block;margin-right:10px}ion-content ion-grid .order-status .status-title .line-top{height:28px;bottom:0}ion-content ion-grid .order-status .status-title .line-middle{height:55px;top:0}ion-content ion-grid .order-status .status-title .line-bottom{height:28px;top:0}ion-content ion-grid .order-status .status-title .line{width:5px;left:8px;background-color:var(--ion-color-gray-light);display:inline-block;position:absolute}ion-content ion-grid .order-status .order-status-active{color:var(--ion-color-tertiary)!important}ion-content ion-grid .order-status .order-status-active .dot,ion-content ion-grid .order-status .order-status-active .line{background-color:var(--ion-color-tertiary)!important}"]
-        })
-    ], exports.ɵp);
-
-    exports.ɵm = /** @class */ (function () {
-        function SafeUrlPipe(sanitizer) {
-            this.sanitizer = sanitizer;
-        }
-        SafeUrlPipe.prototype.transform = function (html) {
-            return this.sanitizer.bypassSecurityTrustStyle('url(\'' + encodeURI(html) + '\')');
-        };
-        return SafeUrlPipe;
-    }());
-    exports.ɵm = __decorate([
-        i0.Pipe({ name: 'safeUrl' })
-    ], exports.ɵm);
-
-    exports.ɵn = /** @class */ (function () {
-        function SafeResourceUrlPipe(sanitizer) {
-            this.sanitizer = sanitizer;
-        }
-        SafeResourceUrlPipe.prototype.transform = function (url) {
-            return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-        };
-        return SafeResourceUrlPipe;
-    }());
-    exports.ɵn = __decorate([
-        i0.Pipe({ name: 'safeResourceUrl' })
-    ], exports.ɵn);
-
-    exports.ɵj = /** @class */ (function () {
-        function UtilsModule() {
-        }
-        return UtilsModule;
-    }());
-    exports.ɵj = __decorate([
-        i0.NgModule({
-            declarations: [
-                exports.ɵk, exports.ɵl, exports.ɵm, exports.ɵn, exports.ɵh, exports.ɵo, exports.ɵp, exports.ɵi, exports.ɵt
-            ],
-            imports: [
-                common.CommonModule,
-                i1$2.IonicModule
-            ],
-            entryComponents: [exports.ɵh, exports.ɵp, exports.ɵi, exports.ɵt],
-            exports: [exports.ɵk, exports.ɵl, exports.ɵm, exports.ɵn, exports.ɵh, exports.ɵo, exports.ɵp, exports.ɵi, exports.ɵt]
-        })
-    ], exports.ɵj);
-
-    var routes = [
-        {
-            path: '',
-            component: exports.ɵa
-        },
-    ];
-    exports.TutorialModule = /** @class */ (function () {
-        function TutorialModule() {
-        }
-        return TutorialModule;
-    }());
-    exports.TutorialModule = __decorate([
-        i0.NgModule({
-            imports: [
-                router.RouterModule.forChild(routes),
-                common.CommonModule,
-                forms.FormsModule,
-                i1$2.IonicModule,
-                exports.ɵj,
-            ],
-            declarations: [exports.ɵa]
-        })
-    ], exports.TutorialModule);
-
-    /*
-     * Public API Surface
-     */
-    // export * from './src/app/modules/header/header.module'
-    // export * from './app/modules/header/header.module';
-
-    exports.ɵr = /** @class */ (function (_super) {
-        __extends(RelationshopOnlineEComHttpClient, _super);
-        function RelationshopOnlineEComHttpClient() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this.shopPath = 'Online';
-            return _this;
-        }
-        return RelationshopOnlineEComHttpClient;
-    }(exports.ɵf));
-    exports.ɵr.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopOnlineEComHttpClient_Factory() { return new exports.ɵr(i0.ɵɵinject(i1$1.HttpHandler), i0.ɵɵinject(exports.ɵd)); }, token: exports.ɵr, providedIn: "root" });
-    exports.ɵr = __decorate([
-        i0.Injectable({
-            providedIn: 'root'
-        })
-        // export class RelationshopEComHttpClient extends RelationshopHttpClient{
-        // 	protected api = ENV.EComHost;
-        // }
-    ], exports.ɵr);
-
-    exports.ɵq = /** @class */ (function () {
         function AppSettings(api, ecomApi) {
             this.api = api;
             this.ecomApi = ecomApi;
@@ -2522,12 +2140,12 @@
         };
         return AppSettings;
     }());
-    exports.ɵq.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AppSettings_Factory() { return new exports.ɵq(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵr)); }, token: exports.ɵq, providedIn: "root" });
-    exports.ɵq = __decorate([
+    exports.ɵo.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AppSettings_Factory() { return new exports.ɵo(i0.ɵɵinject(exports.ɵm), i0.ɵɵinject(exports.ɵp)); }, token: exports.ɵo, providedIn: "root" });
+    exports.ɵo = __decorate([
         i0.Injectable({
             providedIn: 'root'
         })
-    ], exports.ɵq);
+    ], exports.ɵo);
 
     /**
      * Generated bundle index. Do not edit.
