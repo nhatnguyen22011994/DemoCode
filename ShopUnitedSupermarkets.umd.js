@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('ionic-cache'), require('ionic-cache/dist/cache.service'), require('@ionic-native/network/ngx'), require('@angular/common/http'), require('@ionic-native/in-app-browser/ngx'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@ionic-native/device/ngx'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index'), require('@angular/platform-browser')) :
-    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', 'ionic-cache', 'ionic-cache/dist/cache.service', '@ionic-native/network/ngx', '@angular/common/http', '@ionic-native/in-app-browser/ngx', '@ionic-native/geolocation/ngx', 'lodash', '@ionic-native/device/ngx', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index', '@angular/platform-browser'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$2, global.storage, global.rxjs, global.rxjs.operators, global['ionic-cache'], global.i1, global.ngx$3, global.ng.common.http, global.ngx, global.ngx$1, global._, global.ngx$2, global.i2, global.i4, global.i5, global.i6, global.i5$1, global.ng.platformBrowser));
-}(this, (function (exports, i0, router, forms, common, i1$2, storage, rxjs, operators, ionicCache, i1, ngx$3, i1$1, ngx, ngx$1, _, ngx$2, i2, i4, i5, i6, i5$1, platformBrowser) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('@angular/forms'), require('@angular/common'), require('@ionic/angular'), require('@ionic/storage'), require('rxjs'), require('rxjs/operators'), require('ionic-cache'), require('ionic-cache/dist/cache.service'), require('@ionic-native/network/ngx'), require('@ionic-native/in-app-browser/ngx'), require('@ionic-native/geolocation/ngx'), require('lodash'), require('@ionic-native/device/ngx'), require('@angular/common/http'), require('@ionic-native/in-app-browser/ngx/index'), require('@ionic-native/geolocation/ngx/index'), require('@ionic-native/device/ngx/index'), require('@pscoped/ngx-pub-sub'), require('@ionic-native/network/ngx/index'), require('@angular/platform-browser')) :
+    typeof define === 'function' && define.amd ? define('ShopUnitedSupermarkets', ['exports', '@angular/core', '@angular/router', '@angular/forms', '@angular/common', '@ionic/angular', '@ionic/storage', 'rxjs', 'rxjs/operators', 'ionic-cache', 'ionic-cache/dist/cache.service', '@ionic-native/network/ngx', '@ionic-native/in-app-browser/ngx', '@ionic-native/geolocation/ngx', 'lodash', '@ionic-native/device/ngx', '@angular/common/http', '@ionic-native/in-app-browser/ngx/index', '@ionic-native/geolocation/ngx/index', '@ionic-native/device/ngx/index', '@pscoped/ngx-pub-sub', '@ionic-native/network/ngx/index', '@angular/platform-browser'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ShopUnitedSupermarkets = {}, global.ng.core, global.ng.router, global.ng.forms, global.ng.common, global.i1$1, global.storage, global.rxjs, global.rxjs.operators, global['ionic-cache'], global.i1, global.ngx$3, global.ngx, global.ngx$1, global._, global.ngx$2, global.ng.common.http, global.i2, global.i4, global.i6, global.i6$1, global.i5, global.ng.platformBrowser));
+}(this, (function (exports, i0, router, forms, common, i1$1, storage, rxjs, operators, ionicCache, i1, ngx$3, ngx, ngx$1, _, ngx$2, i1$2, i2, i4, i6, i6$1, i5, platformBrowser) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -413,7 +413,7 @@
      */
     // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
-    exports.ɵd = /** @class */ (function () {
+    exports.ɵc = /** @class */ (function () {
         function Credential(cache) {
             this.cache = cache;
             // public rsApiToken:string = 'd23cc01090054f13bd56aa18a7b61cc1'; 
@@ -505,68 +505,11 @@
         };
         return Credential;
     }());
-    exports.ɵd.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Credential_Factory() { return new exports.ɵd(i0.ɵɵinject(i1.CacheService)); }, token: exports.ɵd, providedIn: "root" });
-    exports.ɵd = __decorate([
-        i0.Injectable({
-            providedIn: 'root'
-        })
-    ], exports.ɵd);
-
-    /** reference
-        https://medium.com/@admin_87321/extending-angular-httpclient-episode-2-144b58494db4
-        https://github.com/bbogdanov/ExtendAngularHttpClient/blob/master/extendHttpClient/src/app/http-client.ts
-        https://github.com/angular/angular/issues/20203
-    **/
-    exports.ɵc = /** @class */ (function (_super) {
-        __extends(RelationshopHttpClient, _super);
-        function RelationshopHttpClient(handler, cre) {
-            var _this = _super.call(this, handler) || this;
-            _this.cre = cre;
-            _this.api = ENV.APIUrl;
-            return _this;
-        }
-        RelationshopHttpClient.prototype.request = function (first, url, options) {
-            if (options === void 0) { options = {}; }
-            var override = {};
-            if (!options) {
-                options = {};
-            }
-            // end point url
-            // url =  ENV.APIUrl+ url;
-            url = this.api + url;
-            // token
-            var headers = undefined;
-            if (options.headers instanceof i1$1.HttpHeaders) {
-                headers = options.headers;
-            }
-            else {
-                headers = new i1$1.HttpHeaders(options.headers);
-            }
-            headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-            headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
-            headers = headers.set('TrackingCode', ENV.TrackingCode || '');
-            options.headers = headers;
-            // cache params
-            // let params: HttpParams|undefined = undefined;
-            // if (!!options.params) {
-            //     if (options.params instanceof HttpParams) {
-            //       params = options.params;
-            //     } else {
-            //       params = new HttpParams({ fromObject: options.params } as HttpParamsOptions);
-            //     }
-            // }
-            var req = _super.prototype.request.call(this, first, url, options);
-            return req;
-        };
-        return RelationshopHttpClient;
-    }(i1$1.HttpClient));
-    exports.ɵc.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopHttpClient_Factory() { return new exports.ɵc(i0.ɵɵinject(i1$1.HttpHandler), i0.ɵɵinject(exports.ɵd)); }, token: exports.ɵc, providedIn: "root" });
+    exports.ɵc.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Credential_Factory() { return new exports.ɵc(i0.ɵɵinject(i1.CacheService)); }, token: exports.ɵc, providedIn: "root" });
     exports.ɵc = __decorate([
         i0.Injectable({
             providedIn: 'root'
-        }),
-        __param(0, i0.Inject(i1$1.HttpHandler)),
-        __param(1, i0.Inject(exports.ɵd))
+        })
     ], exports.ɵc);
 
     exports.ɵp = /** @class */ (function () {
@@ -593,16 +536,14 @@
             template: "<ion-header class=\"\">\n    <ion-toolbar>\n        <ion-title>{{title}}</ion-title>\n        <ion-buttons slot=\"end\">\n            <ion-button (click)=\"modalCtrl.dismiss()\">\n                <ion-icon color=\"dark\" name=\"md-close\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n<ion-content class=\"online-order-content\">\n    <ng-container *ngIf=\"url\">\n        <iframe [src]=\"url | safeResourceUrl\"></iframe>\n    </ng-container>\n</ion-content>",
             styles: ["ion-title{padding:0 70px}h3{color:var(--online-order-primary-color);text-align:center;font-weight:700;margin:0}.txt-confirm{color:var(--online-order-blue)}.txt-confirm ion-label{font-weight:700}.link{color:var(--online-order-link-color);display:flex;align-items:center;justify-content:center}ion-label{font-size:14px}.online-order-content iframe{display:block;width:100%;height:100%;border:none}"]
         }),
-        __param(0, i0.Inject(i1$2.ModalController)),
+        __param(0, i0.Inject(i1$1.ModalController)),
         __param(1, i0.Inject(router.Router))
     ], exports.ɵp);
 
     var Utils = /** @class */ (function () {
         function Utils(loadingCtrl, toastCtrl, iab, alertCtrl, cache, geolocation, 
         // public events: Events,
-        navCtrl, 
-        // @Inject(RelationshopHttpClient)public api: RelationshopHttpClient,
-        device, modalController
+        navCtrl, api, device, modalController
         /*public shoppingList: ShoppingList*/ ) {
             this.loadingCtrl = loadingCtrl;
             this.toastCtrl = toastCtrl;
@@ -611,6 +552,7 @@
             this.cache = cache;
             this.geolocation = geolocation;
             this.navCtrl = navCtrl;
+            this.api = api;
             this.device = device;
             this.modalController = modalController;
             this.defaultImg = ENV.DefaultImg;
@@ -714,20 +656,18 @@
             this.navCtrl.navigateRoot(decodeURIComponent(backRoute), options);
         };
         Utils.prototype.getCities = function () {
-            return rxjs.of(null);
-            // // let seq = this.restangular.all('cities').customGET().share();
-            // let seq = this.api.get('/cities', { params: { rCache: 'd', rCacheKey: 'cities' } }).pipe(
-            // 	map((res: any) => {
-            // 		if (res.length == 0) {
-            // 			res = this.cityList;
-            // 		}
-            // 		this.setCache('cities', res);
-            // 		return res;
-            // 	}, err => {
-            // 		console.error('ERROR', err);
-            // 	})
-            // );
-            // return seq;
+            var _this = this;
+            // let seq = this.restangular.all('cities').customGET().share();
+            var seq = this.api.get('/cities', { params: { rCache: 'd', rCacheKey: 'cities' } }).pipe(operators.map(function (res) {
+                if (res.length == 0) {
+                    res = _this.cityList;
+                }
+                _this.setCache('cities', res);
+                return res;
+            }, function (err) {
+                console.error('ERROR', err);
+            }));
+            return seq;
         };
         Utils.prototype.getOSName = function () {
             return this.device.platform;
@@ -737,31 +677,27 @@
             return emailPattern.test(elementValue);
         };
         Utils.prototype.getCityArea = function () {
-            return rxjs.of(null);
-            // let seq = this.api.get('/cityarea/items', { params: { rCache: 'd', rCacheKey: 'city-area' } }).pipe(
-            // 	map((res: any) => {
-            // 		if (res.length == 0) {
-            // 			res = this.cityList;
-            // 		}
-            // 		return res;
-            // 	}, err => {
-            // 	})
-            // );
-            // return seq;
+            var _this = this;
+            var seq = this.api.get('/cityarea/items', { params: { rCache: 'd', rCacheKey: 'city-area' } }).pipe(operators.map(function (res) {
+                if (res.length == 0) {
+                    res = _this.cityList;
+                }
+                return res;
+            }, function (err) {
+            }));
+            return seq;
         };
         Utils.prototype.getStates = function () {
-            return rxjs.of(null);
-            // let seq = this.api.get('/states', { params: { rCache: 'd', rCacheKey: 'states' } }).pipe(
-            // 	map((res: any) => {
-            // 		if (res.length == 0) {
-            // 			res = this.statelist;
-            // 		}
-            // 		return res;
-            // 	}, err => {
-            // 		console.error('ERROR', err);
-            // 	})
-            // );
-            // return seq;
+            var _this = this;
+            var seq = this.api.get('/states', { params: { rCache: 'd', rCacheKey: 'states' } }).pipe(operators.map(function (res) {
+                if (res.length == 0) {
+                    res = _this.statelist;
+                }
+                return res;
+            }, function (err) {
+                console.error('ERROR', err);
+            }));
+            return seq;
         };
         Utils.prototype.getStore = function () {
             return this._store;
@@ -826,15 +762,14 @@
             });
         };
         Utils.prototype.getCache = function (name) {
-            return Promise.resolve();
-            // var key = 'cache-' + name;
-            // return this.cache.getItem(key)
-            // 	.catch(() => {
-            // 		console.log("Cache expired or doesn't exist!");
-            // 	});
+            var key = 'cache-' + name;
+            return this.cache.getItem(key)
+                .catch(function () {
+                console.log("Cache expired or doesn't exist!");
+            });
         };
         Utils.prototype.setCache = function (name, data) {
-            // this.cache.saveItem('cache-' + name, data);
+            this.cache.saveItem('cache-' + name, data);
         };
         Utils.prototype.getCurrentPosition = function () {
             return __awaiter(this, void 0, void 0, function () {
@@ -1220,16 +1155,14 @@
                 this._countDownObs.unsubscribe();
             }
             console.log('setCountDownClock', data);
-            // this.cache.saveItem('cache-CountDownClock', data);
-            return Promise.resolve();
+            this.cache.saveItem('cache-CountDownClock', data);
         };
         Utils.prototype.getCountDownClock = function () {
             var key = 'cache-CountDownClock';
-            // return this.cache.getItem(key)
-            // 	.catch(() => {
-            // 		console.log("getCountDownClock expired or doesn't exist!");
-            // 	});
-            return Promise.resolve(null);
+            return this.cache.getItem(key)
+                .catch(function () {
+                console.log("getCountDownClock expired or doesn't exist!");
+            });
         };
         Utils.prototype.countDownfunc = function () {
             var _this = this;
@@ -1443,9 +1376,8 @@
             return coupon;
         };
         Utils.prototype.sendSupportEmail = function (obj) {
-            return rxjs.of(null);
-            // Object.assign(obj, { BannerID: ENV.DefaultBanerId });
-            // return this.api.post('/feedbacks', obj)
+            Object.assign(obj, { BannerID: ENV.DefaultBanerId });
+            return this.api.post('/feedbacks', obj);
         };
         Utils.prototype.rsAddress2ecomAddress = function (rsAddress) {
             // console.log('rsAddress', rsAddress);
@@ -1507,20 +1439,21 @@
         };
         return Utils;
     }());
-    Utils.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new Utils(i0.ɵɵinject(i1$2.LoadingController), i0.ɵɵinject(i1$2.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$2.AlertController), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(i4.Geolocation), i0.ɵɵinject(i1$2.NavController), i0.ɵɵinject(i5.Device), i0.ɵɵinject(i1$2.ModalController)); }, token: Utils, providedIn: "root" });
+    Utils.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function Utils_Factory() { return new Utils(i0.ɵɵinject(i1$1.LoadingController), i0.ɵɵinject(i1$1.ToastController), i0.ɵɵinject(i2.InAppBrowser), i0.ɵɵinject(i1$1.AlertController), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(i4.Geolocation), i0.ɵɵinject(i1$1.NavController), i0.ɵɵinject(i1$2.HttpClient), i0.ɵɵinject(i6.Device), i0.ɵɵinject(i1$1.ModalController)); }, token: Utils, providedIn: "root" });
     Utils = __decorate([
         i0.Injectable({
             providedIn: 'root'
         }),
-        __param(0, i0.Inject(i1$2.LoadingController)),
-        __param(1, i0.Inject(i1$2.ToastController)),
+        __param(0, i0.Inject(i1$1.LoadingController)),
+        __param(1, i0.Inject(i1$1.ToastController)),
         __param(2, i0.Inject(ngx.InAppBrowser)),
-        __param(3, i0.Inject(i1$2.AlertController)),
+        __param(3, i0.Inject(i1$1.AlertController)),
         __param(4, i0.Inject(ionicCache.CacheService)),
         __param(5, i0.Inject(ngx$1.Geolocation)),
-        __param(6, i0.Inject(i1$2.NavController)),
-        __param(7, i0.Inject(ngx$2.Device)),
-        __param(8, i0.Inject(i1$2.ModalController))
+        __param(6, i0.Inject(i1$1.NavController)),
+        __param(7, i0.Inject(i1$2.HttpClient)),
+        __param(8, i0.Inject(ngx$2.Device)),
+        __param(9, i0.Inject(i1$1.ModalController))
     ], Utils);
     function noop() { }
     ;
@@ -1616,6 +1549,63 @@
         })
     ], exports.ɵg);
 
+    /** reference
+        https://medium.com/@admin_87321/extending-angular-httpclient-episode-2-144b58494db4
+        https://github.com/bbogdanov/ExtendAngularHttpClient/blob/master/extendHttpClient/src/app/http-client.ts
+        https://github.com/angular/angular/issues/20203
+    **/
+    exports.ɵe = /** @class */ (function (_super) {
+        __extends(RelationshopHttpClient, _super);
+        function RelationshopHttpClient(handler, cre) {
+            var _this = _super.call(this, handler) || this;
+            _this.cre = cre;
+            _this.api = ENV.APIUrl;
+            return _this;
+        }
+        RelationshopHttpClient.prototype.request = function (first, url, options) {
+            if (options === void 0) { options = {}; }
+            var override = {};
+            if (!options) {
+                options = {};
+            }
+            // end point url
+            // url =  ENV.APIUrl+ url;
+            url = this.api + url;
+            // token
+            var headers = undefined;
+            if (options.headers instanceof i1$2.HttpHeaders) {
+                headers = options.headers;
+            }
+            else {
+                headers = new i1$2.HttpHeaders(options.headers);
+            }
+            headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+            headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
+            headers = headers.set('TrackingCode', ENV.TrackingCode || '');
+            options.headers = headers;
+            // cache params
+            // let params: HttpParams|undefined = undefined;
+            // if (!!options.params) {
+            //     if (options.params instanceof HttpParams) {
+            //       params = options.params;
+            //     } else {
+            //       params = new HttpParams({ fromObject: options.params } as HttpParamsOptions);
+            //     }
+            // }
+            var req = _super.prototype.request.call(this, first, url, options);
+            return req;
+        };
+        return RelationshopHttpClient;
+    }(i1$2.HttpClient));
+    exports.ɵe.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopHttpClient_Factory() { return new exports.ɵe(i0.ɵɵinject(i1$2.HttpHandler), i0.ɵɵinject(exports.ɵc)); }, token: exports.ɵe, providedIn: "root" });
+    exports.ɵe = __decorate([
+        i0.Injectable({
+            providedIn: 'root'
+        }),
+        __param(0, i0.Inject(i1$2.HttpHandler)),
+        __param(1, i0.Inject(exports.ɵc))
+    ], exports.ɵe);
+
     exports.ɵf = /** @class */ (function (_super) {
         __extends(RelationshopEComHttpClient, _super);
         function RelationshopEComHttpClient(handler, cre) {
@@ -1636,11 +1626,11 @@
             url = this.api + url;
             // token
             var headers = undefined;
-            if (options.headers instanceof i1$1.HttpHeaders) {
+            if (options.headers instanceof i1$2.HttpHeaders) {
                 headers = options.headers;
             }
             else {
-                headers = new i1$1.HttpHeaders(options.headers);
+                headers = new i1$2.HttpHeaders(options.headers);
             }
             headers = headers.set('Content-Type', 'application/json; charset=utf-8');
             headers = headers.set('X-MCMAccessToken', this.cre.rsApiToken || '');
@@ -1651,8 +1641,8 @@
             return req;
         };
         return RelationshopEComHttpClient;
-    }(i1$1.HttpClient));
-    exports.ɵf.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopEComHttpClient_Factory() { return new exports.ɵf(i0.ɵɵinject(i1$1.HttpHandler), i0.ɵɵinject(exports.ɵd)); }, token: exports.ɵf, providedIn: "root" });
+    }(i1$2.HttpClient));
+    exports.ɵf.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RelationshopEComHttpClient_Factory() { return new exports.ɵf(i0.ɵɵinject(i1$2.HttpHandler), i0.ɵɵinject(exports.ɵc)); }, token: exports.ɵf, providedIn: "root" });
     exports.ɵf = __decorate([
         i0.Injectable({
             providedIn: 'root'
@@ -1662,7 +1652,7 @@
         // }
     ], exports.ɵf);
 
-    exports.ɵe = /** @class */ (function () {
+    exports.ɵd = /** @class */ (function () {
         function CurrentStore(cache, api, cre, ecapi, platform, events) {
             var _this = this;
             this.cache = cache;
@@ -1838,12 +1828,12 @@
         };
         return CurrentStore;
     }());
-    exports.ɵe.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentStore_Factory() { return new exports.ɵe(i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(exports.ɵf), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(i6.NgxPubSubService)); }, token: exports.ɵe, providedIn: "root" });
-    exports.ɵe = __decorate([
+    exports.ɵd.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentStore_Factory() { return new exports.ɵd(i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵf), i0.ɵɵinject(i1$1.Platform), i0.ɵɵinject(i6$1.NgxPubSubService)); }, token: exports.ɵd, providedIn: "root" });
+    exports.ɵd = __decorate([
         i0.Injectable({
             providedIn: 'root'
         })
-    ], exports.ɵe);
+    ], exports.ɵd);
 
     exports.ɵb = /** @class */ (function () {
         // public  authState: Observable<any>;
@@ -2150,17 +2140,17 @@
         };
         return AuthService;
     }());
-    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵe), i0.ɵɵinject(i5$1.Network), i0.ɵɵinject(i1$2.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
+    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new exports.ɵb(i0.ɵɵinject(i1$2.HttpClient), i0.ɵɵinject(exports.ɵc), i0.ɵɵinject(i1.CacheService), i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i5.Network), i0.ɵɵinject(i1$1.Platform), i0.ɵɵinject(exports.ɵg)); }, token: exports.ɵb, providedIn: "root" });
     exports.ɵb = __decorate([
         i0.Injectable({
             providedIn: 'root'
         }),
-        __param(0, i0.Inject(exports.ɵc)),
-        __param(1, i0.Inject(exports.ɵd)),
+        __param(0, i0.Inject(i1$2.HttpClient)),
+        __param(1, i0.Inject(exports.ɵc)),
         __param(2, i0.Inject(ionicCache.CacheService)),
-        __param(3, i0.Inject(exports.ɵe)),
+        __param(3, i0.Inject(exports.ɵd)),
         __param(4, i0.Inject(ngx$3.Network)),
-        __param(5, i0.Inject(i1$2.Platform)),
+        __param(5, i0.Inject(i1$1.Platform)),
         __param(6, i0.Inject(exports.ɵg))
     ], exports.ɵb);
 
@@ -2294,7 +2284,7 @@
             styles: ["ion-img img{margin-left:auto;margin-right:auto}.btn{width:110px;height:40px}.cus-headline-1{color:var(--ion-color-tertiary)}ion-label{display:block;text-overflow:clip;white-space:normal}.cus-headline-1{padding:0}"]
         }),
         __param(0, i0.Inject(router.Router)),
-        __param(1, i0.Inject(i1$2.ModalController))
+        __param(1, i0.Inject(i1$1.ModalController))
     ], exports.ɵi);
 
     exports.ɵh = /** @class */ (function () {
@@ -2342,9 +2332,9 @@
             styles: [":host{text-align:center}h1{font-size:var(--dxp-fz-huge);color:var(--ion-color-primary);margin-bottom:30px}.learn-more-lbl{display:block;margin-top:30px;color:var(--ion-color-blue-light)}ion-button.action{width:100px}"]
         }),
         __param(0, i0.Inject(router.Router)),
-        __param(1, i0.Inject(i1$2.ModalController)),
-        __param(2, i0.Inject(i1$2.NavController)),
-        __param(3, i0.Inject(i6.NgxPubSubService))
+        __param(1, i0.Inject(i1$1.ModalController)),
+        __param(2, i0.Inject(i1$1.NavController)),
+        __param(3, i0.Inject(i6$1.NgxPubSubService))
     ], exports.ɵh);
 
     exports.ɵo = /** @class */ (function () {
@@ -2404,7 +2394,7 @@
             ],
             imports: [
                 common.CommonModule,
-                i1$2.IonicModule
+                i1$1.IonicModule
             ],
             entryComponents: [exports.ɵh, exports.ɵi, exports.ɵp],
             exports: [exports.ɵk, exports.ɵl, exports.ɵm, exports.ɵn, exports.ɵh, exports.ɵo, exports.ɵi, exports.ɵp]
@@ -2428,7 +2418,7 @@
                 router.RouterModule.forChild(routes),
                 common.CommonModule,
                 forms.FormsModule,
-                i1$2.IonicModule,
+                i1$1.IonicModule,
                 exports.ɵj,
             ],
             declarations: [exports.ɵa]
