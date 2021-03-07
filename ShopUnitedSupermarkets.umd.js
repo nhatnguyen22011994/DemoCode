@@ -277,16 +277,18 @@
 
     var LOCAL_STORE_DETAILS_KEY = "LocalStoreDetails";
     var VIEW_STORE_DETAILS_KEY = "ViewStoreDetails";
-    exports.CurrentCustomService = /** @class */ (function () {
+    exports.ɵb = /** @class */ (function () {
         function CurrentCustomService() {
             this._systemService = new rxjs.BehaviorSubject(-1);
             this._systemService$ = this._systemService.asObservable();
         }
         Object.defineProperty(CurrentCustomService.prototype, "systemServiceId", {
             get: function () {
+                console.log("setSystemService external code");
                 return this._systemService.getValue();
             },
             set: function (value) {
+                console.log("getSystemService external code");
                 this._systemService.next(value);
             },
             enumerable: true,
@@ -300,10 +302,10 @@
         };
         return CurrentCustomService;
     }());
-    exports.CurrentCustomService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentCustomService_Factory() { return new exports.CurrentCustomService(); }, token: exports.CurrentCustomService, providedIn: "root" });
-    exports.CurrentCustomService = __decorate([
+    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentCustomService_Factory() { return new exports.ɵb(); }, token: exports.ɵb, providedIn: "root" });
+    exports.ɵb = __decorate([
         i0.Injectable({ providedIn: 'root' })
-    ], exports.CurrentCustomService);
+    ], exports.ɵb);
 
     exports.ɵa = /** @class */ (function () {
         function TutorialPage(router, route, storage, 
@@ -347,7 +349,7 @@
         __param(0, i0.Inject(router.Router)),
         __param(1, i0.Inject(router.ActivatedRoute)),
         __param(2, i0.Inject(storage.Storage)),
-        __param(3, i0.Inject(exports.CurrentCustomService))
+        __param(3, i0.Inject(exports.ɵb))
     ], exports.ɵa);
 
     var routes = [
@@ -376,15 +378,13 @@
     /*
      * Public API Surface
      */
+    // export * from './app/modules/online-order/providers/current-custom-service.service';
     // export * from './src/app/modules/header/header.module'
     // export * from './app/modules/header/header.module';
 
     /**
      * Generated bundle index. Do not edit.
      */
-
-    exports.LOCAL_STORE_DETAILS_KEY = LOCAL_STORE_DETAILS_KEY;
-    exports.VIEW_STORE_DETAILS_KEY = VIEW_STORE_DETAILS_KEY;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
