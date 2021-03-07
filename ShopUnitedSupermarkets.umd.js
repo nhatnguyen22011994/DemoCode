@@ -593,9 +593,8 @@
      * If the `status` field is not `success`, then an error is detected and returned.
      */
     exports.ɵc = /** @class */ (function () {
-        function User(api, cache /*, public utils: Utils*/) {
+        function User(api) {
             this.api = api;
-            this.cache = cache;
             this._currentValue = 0;
         }
         /**
@@ -881,7 +880,7 @@
         };
         return User;
     }());
-    exports.ɵc.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function User_Factory() { return new exports.ɵc(i0.ɵɵinject(exports.ɵd), i0.ɵɵinject(i1.CacheService)); }, token: exports.ɵc, providedIn: exports.ɵb });
+    exports.ɵc.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function User_Factory() { return new exports.ɵc(i0.ɵɵinject(exports.ɵd)); }, token: exports.ɵc, providedIn: exports.ɵb });
     exports.ɵc = __decorate([
         i0.Injectable({
             providedIn: exports.ɵb
