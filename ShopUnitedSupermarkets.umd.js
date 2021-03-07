@@ -277,7 +277,7 @@
 
     var LOCAL_STORE_DETAILS_KEY = "LocalStoreDetails";
     var VIEW_STORE_DETAILS_KEY = "ViewStoreDetails";
-    exports.ɵb = /** @class */ (function () {
+    exports.CurrentCustomService = /** @class */ (function () {
         function CurrentCustomService() {
             this._systemService = new rxjs.BehaviorSubject(-1);
             this._systemService$ = this._systemService.asObservable();
@@ -300,10 +300,10 @@
         };
         return CurrentCustomService;
     }());
-    exports.ɵb.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentCustomService_Factory() { return new exports.ɵb(); }, token: exports.ɵb, providedIn: "root" });
-    exports.ɵb = __decorate([
+    exports.CurrentCustomService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function CurrentCustomService_Factory() { return new exports.CurrentCustomService(); }, token: exports.CurrentCustomService, providedIn: "root" });
+    exports.CurrentCustomService = __decorate([
         i0.Injectable({ providedIn: 'root' })
-    ], exports.ɵb);
+    ], exports.CurrentCustomService);
 
     exports.ɵa = /** @class */ (function () {
         function TutorialPage(router, route, storage, 
@@ -347,7 +347,7 @@
         __param(0, i0.Inject(router.Router)),
         __param(1, i0.Inject(router.ActivatedRoute)),
         __param(2, i0.Inject(storage.Storage)),
-        __param(3, i0.Inject(exports.ɵb))
+        __param(3, i0.Inject(exports.CurrentCustomService))
     ], exports.ɵa);
 
     var routes = [
@@ -382,6 +382,9 @@
     /**
      * Generated bundle index. Do not edit.
      */
+
+    exports.LOCAL_STORE_DETAILS_KEY = LOCAL_STORE_DETAILS_KEY;
+    exports.VIEW_STORE_DETAILS_KEY = VIEW_STORE_DETAILS_KEY;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
